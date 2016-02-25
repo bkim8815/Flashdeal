@@ -1,6 +1,16 @@
 source 'https://rubygems.org'
 
 
+gem 'geocoder'
+gem 'hirb', '~> 0.7.3'
+gem 'rails_12factor'
+gem 'paperclip'
+gem 'aws-sdk', '<2'
+gem 'dotenv-rails'
+
+
+
+
 group :development do
   gem 'sqlite3'
 
