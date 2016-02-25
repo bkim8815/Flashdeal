@@ -7,6 +7,8 @@ gem 'rails_12factor'
 gem 'paperclip'
 gem 'aws-sdk', '<2'
 gem 'dotenv-rails'
+gem 'devise'
+
 
 
 
