@@ -1,5 +1,6 @@
 class Restaurant < ActiveRecord::Base
   has_many :coupons
+  has_many :customers, through: :subscriptions
 
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?

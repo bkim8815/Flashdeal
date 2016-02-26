@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226024107) do
+ActiveRecord::Schema.define(version: 20160226035842) do
 
   create_table "coupons", force: :cascade do |t|
     t.string   "title"
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 20160226024107) do
     t.datetime "updated_at",   null: false
   end
 
+  create_table "promotions", force: :cascade do |t|
+    t.integer  "customer_id"
+    t.integer  "coupon_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -51,6 +58,14 @@ ActiveRecord::Schema.define(version: 20160226024107) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.integer  "restaurant_id"
+    t.integer  "customer_id"
+    t.boolean  "status"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end
