@@ -26,7 +26,7 @@ class CouponsController < ApplicationController
   # POST /coupons.json
   def create
     # @coupon = Coupon.new(coupon_params)
-    @coupon = @restaurant.coupons.new(department_params)
+    @coupon = @restaurant.coupons.new(coupon_params)
 
     respond_to do |format|
       if @coupon.save

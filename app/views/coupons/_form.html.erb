@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-<%= form_for(@coupon, multipart: true) do |f| %>
-=======
-<%= form_for([@restaurant, @coupon]) do |f| %>
->>>>>>> d2354a10a358fbce88077f834915231846e446a2
+<%= form_for ([@restaurant, @coupon]), html: { multipart: true }  do |f| %>
+
   <% if @coupon.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@coupon.errors.count, "error") %> prohibited this coupon from being saved:</h2>
@@ -39,17 +36,11 @@
     <%= f.label :max_count %><br>
     <%= f.number_field :max_count %>
   </div>
-<<<<<<< HEAD
-  <div class="field">
-    <%= f.label :Restaurant_id %><br>
-    <%= f.text_field :Restaurant_id %>
-  </div>
   <div class="field">
     <%= f.label :picture %><br>
     <%= f.file_field :picture %>
   </div>
-=======
->>>>>>> d2354a10a358fbce88077f834915231846e446a2
+
   <div class="actions">
     <%= f.submit %>
   </div>
