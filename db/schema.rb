@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226014832) do
+ActiveRecord::Schema.define(version: 20160226015054) do
 
   create_table "coupons", force: :cascade do |t|
     t.string   "title"
@@ -21,8 +21,12 @@ ActiveRecord::Schema.define(version: 20160226014832) do
     t.boolean  "expiration"
     t.integer  "max_count"
     t.integer  "restaurant_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   add_index "coupons", ["restaurant_id"], name: "index_coupons_on_restaurant_id"
