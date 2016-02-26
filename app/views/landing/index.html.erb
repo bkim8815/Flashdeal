@@ -1,21 +1,37 @@
 <body>
   <!-- Button trigger modal -->
 
-<div class="container">
+
+<div class="logolink">
+    <%= link_to image_tag("FlashDealLogo.png",:border => 0, :alt => 'logo', :title => ''), coupons_path %>
+</div>​
+<div id="prompt">
+  <h5 class="text-center">Check Flash Deals In Your Area</h5>
+</div>
+
+<div class="login">
+<a href="#">Own a Business? Login/Register here</a>
+</div>
+
+<!-- This link needs to go to restaurant login/register -->
+
+
+<!-- This is the login/register modal. Don't forget to add css(prettyline)
+<div class="container"> -->
     <!-- <hr class="prettyline"> -->
-    <br>
+    <!-- <br>
   <center>
   <br>
   <button class="btn btn-primary btn-md" href="#signup" data-toggle="modal" data-target=".bs-modal-sm">Sign In/Register</button>
   <h4>Own a business? Login in or Register</h4>
   </center>
-  <br>
+  <br> -->
     <!-- <hr class="prettyline"> -->
- </div>
+ <!-- </div> -->
 
 
 <!-- Modal -->
-<div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<!-- <div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
         <br>
@@ -34,28 +50,28 @@
         </div>
         <div class="tab-pane fade active in" id="signin">
             <form class="form-horizontal">
-            <fieldset>
+            <fieldset> -->
             <!-- Sign In Form -->
             <!-- Text input-->
-            <div class="control-group">
+            <!-- <div class="control-group">
               <label class="control-label" for="Email">Email:</label>
               <div class="controls">
                 <input id="Email" name="Email" class="form-control" type="text"  class="input-large" required="">
               </div>
-            </div>
+            </div> -->
 
             <!-- Password input-->
-            <div class="control-group">
+            <!-- <div class="control-group">
               <label class="control-label" for="passwordinput">Password:</label>
               <div class="controls">
                 <input required="" id="passwordinput" name="passwordinput" class="form-control" type="password" placeholder="********" class="input-medium">
               </div>
             </div>
-            <em>1-8 Characters</em>
+            <em>1-8 Characters</em> -->
 
 
             <!-- Button -->
-            <div class="control-group">
+            <!-- <div class="control-group">
               <label class="control-label" for="signin"></label>
               <div class="controls">
                 <button id="signin" name="signin" class="btn btn-success">Sign In</button>
@@ -66,51 +82,51 @@
         </div>
         <div class="tab-pane fade" id="signup">
             <form class="form-horizontal">
-            <fieldset>
+            <fieldset> -->
             <!-- Sign Up Form -->
             <!-- Text input-->
-            <div class="control-group">
+            <!-- <div class="control-group">
               <label class="control-label" for="Email">Email:</label>
               <div class="controls">
                 <input id="Email" name="Email" class="form-control" type="text"  class="input-large" required="">
               </div>
-            </div>
+            </div> -->
 
             <!-- Text input-->
-            <div class="control-group">
+            <!-- <div class="control-group">
               <label class="control-label" for="userid">Name:</label>
               <div class="controls">
                 <input id="userid" name="userid" class="form-control" type="text"  class="input-large" required="">
               </div>
-            </div>
+            </div> -->
 
             <!-- Password input-->
-            <div class="control-group">
+            <!-- <div class="control-group">
               <label class="control-label" for="password">Password:</label>
               <div class="controls">
                 <input id="password" name="password" class="form-control" type="password" placeholder="********" class="input-large" required="">
                 <em>1-8 Characters</em>
               </div>
-            </div>
+            </div> -->
 
             <!-- Text input-->
-            <div class="control-group">
+            <!-- <div class="control-group">
               <label class="control-label" for="reenterpassword">Re-Enter Password:</label>
               <div class="controls">
                 <input id="reenterpassword" class="form-control" name="reenterpassword" type="password" placeholder="********" class="input-large" required="">
               </div>
-            </div>
+            </div> -->
 
 
 
             <!-- Button -->
-            <div class="control-group">
+            <!-- <div class="control-group">
               <label class="control-label" for="confirmsignup"></label>
               <div class="controls">
                 <button id="confirmsignup" name="confirmsignup" class="btn btn-success">Sign Up</button>
               </div>
-            </div>
-            </fieldset>
+            </div> -->
+            <!-- </fieldset>
             </form>
       </div>
     </div>
@@ -122,15 +138,6 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="logolink">
-    <%= link_to image_tag("FlashDealLogo.png",:border => 0, :alt => 'logo', :title => ''), coupons_path %>
-</div>​
-
-
-
-
-
-
+</div> -->
+<!-- login/register modal end -->
 </body>
