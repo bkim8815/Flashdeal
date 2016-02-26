@@ -1,4 +1,4 @@
 class Promotion < ActiveRecord::Base
-  belongs_to :coupon
   belongs_to :customer
+  belongs_to :coupon
 end

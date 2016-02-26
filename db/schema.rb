@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226035842) do
+ActiveRecord::Schema.define(version: 20160226153054) do
 
   create_table "coupons", force: :cascade do |t|
     t.string   "title"
@@ -46,6 +46,9 @@ ActiveRecord::Schema.define(version: 20160226035842) do
     t.datetime "updated_at",  null: false
   end
 
+  add_index "promotions", ["coupon_id"], name: "index_promotions_on_coupon_id"
+  add_index "promotions", ["customer_id"], name: "index_promotions_on_customer_id"
+
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -61,11 +64,14 @@ ActiveRecord::Schema.define(version: 20160226035842) do
   end
 
   create_table "subscriptions", force: :cascade do |t|
+    t.boolean  "status"
     t.integer  "restaurant_id"
     t.integer  "customer_id"
-    t.boolean  "status"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
+
+  add_index "subscriptions", ["customer_id"], name: "index_subscriptions_on_customer_id"
+  add_index "subscriptions", ["restaurant_id"], name: "index_subscriptions_on_restaurant_id"
 
 end

@@ -1,6 +1,6 @@
 class Coupon < ActiveRecord::Base
   belongs_to :restaurant
-  has_many :customers, through: promotions
+  has_many :customers, through: :promotions
 
   has_attached_file :picture, styles: {
     thumb: '100x100>',
