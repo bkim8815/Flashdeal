@@ -1,5 +1,6 @@
 class CouponsController < ApplicationController
   before_action :set_coupon, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:new, :create]
 
   # GET /coupons
   # GET /coupons.json
@@ -24,7 +25,8 @@ class CouponsController < ApplicationController
   # POST /coupons
   # POST /coupons.json
   def create
-    @coupon = Coupon.new(coupon_params)
+    # @coupon = Coupon.new(coupon_params)
+    @coupon = @restaurant.coupons.new(department_params)
 
     respond_to do |format|
       if @coupon.save
@@ -71,4 +73,7 @@ class CouponsController < ApplicationController
     def coupon_params
       params.require(:coupon).permit(:title, :price, :start_time, :end_time, :expiration, :max_count, :Restaurant_id, :logo)
     end
+    def set_restaurant
+    @restaurant = Restaurant.find(params[:restaurant_id])
+  end
 end
