@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @coupon.title %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @coupon.price %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @coupon.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @coupon.end_time %>
+</p>
+
+<p>
+  <strong>Expiration:</strong>
+  <%= @coupon.expiration %>
+</p>
+
+<p>
+  <strong>Max count:</strong>
+  <%= @coupon.max_count %>
+</p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @coupon.Restaurant %>
+</p>
+
+<%= link_to 'Edit', edit_coupon_path(@coupon) %> |
+<%= link_to 'Back', coupons_path %>

@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226014341) do
+ActiveRecord::Schema.define(version: 20160226014832) do
+
+  create_table "coupons", force: :cascade do |t|
+    t.string   "title"
+    t.decimal  "price"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.boolean  "expiration"
+    t.integer  "max_count"
+    t.integer  "restaurant_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "coupons", ["restaurant_id"], name: "index_coupons_on_restaurant_id"
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"

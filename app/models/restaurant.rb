@@ -1,4 +1,5 @@
 class Restaurant < ActiveRecord::Base
+  has_many :coupons
 
   has_attached_file :logo, styles: {
     thumb: '100x100>',
