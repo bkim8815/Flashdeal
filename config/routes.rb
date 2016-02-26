@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'landing#index'
+
   resources :coupons
   resources :restaurants do
     resources :coupons
