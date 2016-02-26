@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   resources :coupons
   resources :restaurants do
     resources :coupons

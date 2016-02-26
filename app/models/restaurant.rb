@@ -1,6 +1,9 @@
 class Restaurant < ActiveRecord::Base
   has_many :coupons
 
+  geocoded_by :address
+  after_validation :geocode, :if => :address_changed?
+
   has_attached_file :logo, styles: {
     thumb: '100x100>',
     square: '200x200#',
