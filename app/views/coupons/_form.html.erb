@@ -1,4 +1,4 @@
-<%= form_for(@coupon) do |f| %>
+<%= form_for([@restaurant, @coupon]) do |f| %>
   <% if @coupon.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@coupon.errors.count, "error") %> prohibited this coupon from being saved:</h2>
@@ -34,10 +34,6 @@
   <div class="field">
     <%= f.label :max_count %><br>
     <%= f.number_field :max_count %>
-  </div>
-  <div class="field">
-    <%= f.label :Restaurant_id %><br>
-    <%= f.text_field :Restaurant_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
