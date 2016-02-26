@@ -24,6 +24,8 @@
   <strong>Longitude:</strong>
   <%= @restaurant.longitude %>
 </p>
+<%= image_tag @restaurant.logo.url(:medium) %>
+
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>

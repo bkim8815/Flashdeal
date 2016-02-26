@@ -1,4 +1,4 @@
-<%= form_for(@restaurant) do |f| %>
+<%= form_for(@restaurant, multipart: true) do |f| %>
   <% if @restaurant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
@@ -30,6 +30,10 @@
   <div class="field">
     <%= f.label :longitude %><br>
     <%= f.text_field :longitude %>
+  </div>
+  <div class="field">
+    <%= f.label :logo %><br>
+    <%= f.filed_field :logo %>
   </div>
   <div class="actions">
     <%= f.submit %>

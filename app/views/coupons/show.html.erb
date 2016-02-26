@@ -32,8 +32,10 @@
 
 <p>
   <strong>Restaurant:</strong>
-  <%= @coupon.Restaurant %>
+  <%= @coupon.restaurant %>
 </p>
+
+<%= image_tag @coupon.picture.url(:medium) %>
 
 <%= link_to 'Edit', edit_coupon_path(@coupon) %> |
 <%= link_to 'Back', coupons_path %>
