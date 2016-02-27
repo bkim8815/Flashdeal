@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :customers
   root 'landing#index'
 
+  post '/location' => 'coupons#index'
   resources :coupons
   resources :restaurants do
     resources :coupons

@@ -3,6 +3,53 @@
   <!-- Button trigger modal -->
 
 
+<<<<<<< HEAD
+<%= link_to "Logo", coupons_path %>
+
+
+
+
+<button onclick="getLocation()">Look for deals</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+  var la = position.coords.latitude
+  var lo = position.coords.longitude
+    x.innerHTML = "Latitude: " + la +
+    "<br>Longitude: " + lo;
+
+    // $.post('/location', {lat: position.coords.latitude, long: position.coords.longitude});
+    // $.ajax({
+    //   url: '/location',
+    //   type: 'POST',
+    //   data: {lat: position.coords.latitude, long: position.coords.longitude},
+    //   success: function(e) {
+    //     console.log('success');
+    //     console.log(e);
+    //   }
+    // })
+    window.location.assign('<%= coupons_url %>' + '?lat=' + la + '&lon=' + lo)
+
+
+}
+
+
+</script>
+=======
 <div class="logolink">
     <%= link_to image_tag("FlashDealLogo.png",:border => 0, :alt => 'logo', :title => ''), coupons_path %>
 </div>​
@@ -142,4 +189,8 @@
 </div> -->
 <!-- login/register modal end -->
 </body>
+<<<<<<< HEAD
 </div>
+=======
+>>>>>>> a6b1788b73ac9ce716a80d17cc6c195a1fd1171c
+>>>>>>> 00e44987c48c7ba7402ca770bdba9d7a88a30c3b
