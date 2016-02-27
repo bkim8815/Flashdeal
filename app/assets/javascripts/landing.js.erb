@@ -4,8 +4,9 @@
 
 function ready() {
   $('.logolink').on('click', function(e) {
-    if (navigator.geoLocation) {
-      navigator.geoLocation.getCurrentPosition(showPosition);
+    if (navigator.geolocation) {
+      console.log('here');
+      navigator.geolocation.getCurrentPosition(showPosition);
     } else {
       alert("Geolocation is not supported by this browser.")
     }
@@ -14,10 +15,10 @@ function ready() {
   function showPosition(position) {
     var la = position.coords.latitude;
     var lo = position.coords.longitude;
-    x.innerHTML = "Latitude: " + la + "<br>Longitude: " + lo;
 
-    window.location.assign('<%= coupons_url %>' + '?lat=' + la + '&lon=' + lo);
+    window.location.assign('/coupons' + '?lat=' + la + '&lon=' + lo);
   }
 }
+
 
 $(document).on('ready page:load', ready);

@@ -1,24 +1,9 @@
 
-<button onclick="getLocation()">Look for deals</button>
-<script>
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        alert("Geolocation is not supported by this browser.");
-    }
-}
 
-function showPosition(position) {
-  var la = position.coords.latitude
-  var lo = position.coords.longitude
-  window.location.assign('<%= coupons_url %>' + '?lat=' + la + '&lon=' + lo)
-}
-</script>
 
 
 <div class="logolink">
-    <%= link_to image_tag("FlashDealLogo.png",:class => "logo", :border => 0, :alt => 'logo', :title => ''), coupons_path %>
+    <%= image_tag("FlashDealLogo.png",:class => "logo", :border => 0, :alt => 'logo', :title => '') %>
 </div>​
 <div id="prompt">
   <h5 class="text-center">Check Flash Deals In Your Area</h5>

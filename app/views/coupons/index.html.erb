@@ -12,8 +12,7 @@
 <div style='width: 800px;'>
  <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
-
-<script type="text/javascript">
+<script>
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
  markers = handler.addMarkers(<%=raw @map_hash.to_json %>);
@@ -21,8 +20,8 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
  handler.fitMapToBounds();
 });
 
-</script>
 
+</script>
 
 <table>
   <thead>
@@ -41,14 +40,13 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     <% @coupons.each do |coupon| %>
       <tr>
         <td><%= image_tag coupon.picture.url %></td>
-        <td><%= coupon.title %></td>
+        <td><%= link_to coupon.title, coupon %></td>
         <td><%= coupon.price %></td>
 
         <td><%= coupon.end_time %></td>
         <td><% coupon.expiration %></td>
         <button>
 
-        <td><%= link_to 'Show', coupon %></td>
 
       </tr>
     <% end %>
