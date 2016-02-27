@@ -15,9 +15,8 @@ class CustomersController < ApplicationController
 
   # GET /customers/new
   def new
-    @coupon_id = params[:coupon_id]
+
     @customer = Customer.new
-    return @customer, @coupon_id
 
   end
 
@@ -29,13 +28,16 @@ class CustomersController < ApplicationController
   # POST /customers.json
   def create
     coupon_id = params[:coupon_id]
-    c = Coupon.find_by(c.restaurant_id)
+
+    c = Coupon.find_by(coupon_id)
+
     r = Restaurant.find_by(c.restaurant_id)
     @customer = Customer.new(customer_params)
 
     respond_to do |format|
       if @customer.save
 
+        @customer.subscriptions.new(customer_id: @customer.id, restaurant_id: r.id, status: true).save
         # set up a client to talk to the Twilio REST API
        @client = Twilio::REST::Client.new ENV['account_sid'], ENV['auth_token']
 
@@ -44,7 +46,7 @@ class CustomersController < ApplicationController
         :to => @customer.phone_number,
         :body => 'Thank you for subscribing!!',
        })
-        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
+        format.html { redirect_to root_path , notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
       else
         format.html { render :new }
