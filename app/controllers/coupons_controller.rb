@@ -1,12 +1,25 @@
 class CouponsController < ApplicationController
   before_action :set_coupon, only: [:show, :edit, :update, :destroy]
   before_action :set_restaurant, only: [:new, :create]
+  before_action :getlatlong, only: [:index]
 
   # GET /coupons
   # GET /coupons.json
   def index
     @coupons = Coupon.all
+
+    @map_hash=Gmaps4rails.build_markers(@coupons) do |coupon, marker|
+      marker.lat coupon.restaurant.latitude
+      marker.lng coupon.restaurant.longitude
+      marker.infowindow coupon.restaurant.name
+    end
+
+
+
+
   end
+
+
 
   # GET /coupons/1
   # GET /coupons/1.json
@@ -75,5 +88,12 @@ class CouponsController < ApplicationController
     end
     def set_restaurant
     @restaurant = Restaurant.find(params[:restaurant_id])
+  end
+
+
+  def getlatlong
+    @lat =params[:lat]
+    @long =params[:long]
+    # render json: { lat: @lat, lang: @long }
   end
 end
