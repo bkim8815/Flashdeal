@@ -1,0 +1,24 @@
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
+// You can use CoffeeScript in this file: http://coffeescript.org/
+
+function ready() {
+  $('.logolink').on('click', function(e) {
+    if (navigator.geolocation) {
+      console.log('here');
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      alert("Geolocation is not supported by this browser.")
+    }
+  });
+
+  function showPosition(position) {
+    var la = position.coords.latitude;
+    var lo = position.coords.longitude;
+
+    window.location.assign('/coupons' + '?lat=' + la + '&lon=' + lo);
+  }
+}
+
+
+$(document).on('ready page:load', ready);

@@ -8,10 +8,11 @@ class CouponsController < ApplicationController
   def index
     @coupons = Coupon.all
 
+
     @map_hash=Gmaps4rails.build_markers(@coupons) do |coupon, marker|
       marker.lat coupon.restaurant.latitude
       marker.lng coupon.restaurant.longitude
-      marker.infowindow coupon.restaurant.name
+      marker.infowindow coupon.price
     end
 
 
@@ -43,6 +44,7 @@ class CouponsController < ApplicationController
 
     respond_to do |format|
       if @coupon.save
+        
         format.html { redirect_to @coupon, notice: 'Coupon was successfully created.' }
         format.json { render :show, status: :created, location: @coupon }
       else
@@ -94,6 +96,7 @@ class CouponsController < ApplicationController
   def getlatlong
     @lat =params[:lat]
     @long =params[:long]
+
     # render json: { lat: @lat, lang: @long }
   end
 end
