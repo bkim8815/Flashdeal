@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :set_rest, only: [:new, :create]
 
   # GET /customers
   # GET /customers.json
@@ -16,7 +17,11 @@ class CustomersController < ApplicationController
   def new
     # @coupon_id = params[:coupon_id]
     @customer = Customer.new
+<<<<<<< HEAD
     # return @customer, @coupon_id
+=======
+
+>>>>>>> 66d497ac1d15db2683464e2d2ee9d61e4aa6ac03
   end
 
   # GET /customers/1/edit
@@ -33,6 +38,7 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
+
         @customer.subscriptions.new(customer_id: @customer.id, restaurant_id: r.id, status: true).save
         # set up a client to talk to the Twilio REST API
        @client = Twilio::REST::Client.new ENV['account_sid'], ENV['auth_token']
@@ -80,6 +86,12 @@ class CustomersController < ApplicationController
     def set_customer
       @customer = Customer.find(params[:id])
     end
+
+    def set_rest
+      @restaurant = Restaurant.find(params[:restaurant_id])
+    end
+
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
