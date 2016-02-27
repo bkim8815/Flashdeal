@@ -12,7 +12,7 @@ class CouponsController < ApplicationController
     @map_hash=Gmaps4rails.build_markers(@coupons) do |coupon, marker|
       marker.lat coupon.restaurant.latitude
       marker.lng coupon.restaurant.longitude
-      marker.infowindow coupon.restaurant.name
+      marker.infowindow coupon.price
     end
 
 
