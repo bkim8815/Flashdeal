@@ -8,6 +8,7 @@ class CouponsController < ApplicationController
   def index
     @coupons = Coupon.all
 
+
     @map_hash=Gmaps4rails.build_markers(@coupons) do |coupon, marker|
       marker.lat coupon.restaurant.latitude
       marker.lng coupon.restaurant.longitude

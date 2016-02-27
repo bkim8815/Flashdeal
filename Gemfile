@@ -8,7 +8,7 @@ gem 'paperclip'
 gem 'aws-sdk', '<2'
 gem 'dotenv-rails'
 gem 'devise'
-gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
+gem 'gmaps4rails', '>= 2.1.2'
 
 
 

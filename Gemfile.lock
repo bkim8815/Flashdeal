@@ -190,7 +190,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   geocoder
-  gmaps4rails (~> 2.1, >= 2.1.2)
+  gmaps4rails (>= 2.1.2)
   hirb (~> 0.7.3)
   jbuilder (~> 2.0)
   jquery-rails
