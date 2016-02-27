@@ -17,11 +17,9 @@ class CustomersController < ApplicationController
   def new
     # @coupon_id = params[:coupon_id]
     @customer = Customer.new
-<<<<<<< HEAD
-    # return @customer, @coupon_id
-=======
 
->>>>>>> 66d497ac1d15db2683464e2d2ee9d61e4aa6ac03
+    # return @customer, @coupon_id
+
   end
 
   # GET /customers/1/edit
