@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Coupon:</strong>
   <%= @coupon.title %>
 </p>
+
 
 <p>
   <strong>Price:</strong>
@@ -31,7 +32,7 @@
 </p>
 
 <p>
-  <strong>Restaurant:</strong>
+  <strong>Restaurant name:</strong>
   <%= @coupon.restaurant.name %>
 </p>
 <p>
@@ -40,6 +41,6 @@
 </p>
 
 <%= image_tag @coupon.picture.url(:medium) %>
-<%= link_to 'Follow this Restaurant!', new_customer_path %>
+<%= link_to 'Follow this Restaurant!', new_restaurant_customer_path(@coupon.restaurant.id) %>
 <%= link_to 'Edit', edit_coupon_path(@coupon) %> |
 <%= link_to 'Back', coupons_path %>

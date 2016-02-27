@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :set_rest, only: [:new, :create]
 
   # GET /customers
   # GET /customers.json
@@ -15,6 +16,7 @@ class CustomersController < ApplicationController
   # GET /customers/new
   def new
     @customer = Customer.new
+
   end
 
   # GET /customers/1/edit
@@ -28,7 +30,7 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
+        format.html { redirect_to restaurant_coupons_path, notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
       else
         format.html { render :new }
@@ -66,6 +68,12 @@ class CustomersController < ApplicationController
     def set_customer
       @customer = Customer.find(params[:id])
     end
+
+    def set_rest
+      @restaurant = Restaurant.find(params[:restaurant_id])
+    end
+
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params

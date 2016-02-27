@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
+  resources :coupons
 
-  resources :customers
+
+  resources :restaurants do
+    resources :customers
+
+  end
   root 'landing#index'
 
   post '/location' => 'coupons#index'
-  resources :coupons
+
   resources :restaurants do
     resources :coupons
 
   end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

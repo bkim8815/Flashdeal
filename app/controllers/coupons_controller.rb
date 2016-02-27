@@ -88,8 +88,8 @@ class CouponsController < ApplicationController
       params.require(:coupon).permit(:title, :price, :start_time, :end_time, :expiration, :max_count, :Restaurant_id, :picture)
     end
     def set_restaurant
-    @restaurant = Restaurant.find(params[:restaurant_id])
-  end
+      @restaurant = Restaurant.find(params[:restaurant_id])
+    end
 
 
   def getlatlong
