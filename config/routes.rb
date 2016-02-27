@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :coupons
+  recources :customers
 
 
   resources :restaurants do
