@@ -23,6 +23,7 @@
     <%= f.label :longitude %><br>
     <%= f.text_field :longitude %>
   </div>
+  <%= f.hidden_field :coupon_id, :value => @coupon_id %>
   <div class="actions">
     <%= f.submit %>
   </div>

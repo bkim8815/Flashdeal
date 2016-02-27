@@ -40,6 +40,7 @@
 </p>
 
 <%= image_tag @coupon.picture.url(:medium) %>
-<%= link_to 'Follow this Restaurant!', new_customer_path %>
+<%= link_to 'Follow this Restaurant!', new_customer_path(:coupon_id => @coupon.id) %>
+
 <%= link_to 'Edit', edit_coupon_path(@coupon) %> |
 <%= link_to 'Back', coupons_path %>
