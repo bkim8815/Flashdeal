@@ -1,56 +1,6 @@
-<body>
-  <!-- Button trigger modal -->
 
-
-<<<<<<< HEAD
-<%= link_to "Logo", coupons_path %>
-
-
-
-
-<button onclick="getLocation()">Look for deals</button>
-
-<p id="demo"></p>
-
-<script>
-var x = document.getElementById("demo");
-
-function getLocation() {
-
-
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-  var la = position.coords.latitude
-  var lo = position.coords.longitude
-    x.innerHTML = "Latitude: " + la +
-    "<br>Longitude: " + lo;
-
-    // $.post('/location', {lat: position.coords.latitude, long: position.coords.longitude});
-    // $.ajax({
-    //   url: '/location',
-    //   type: 'POST',
-    //   data: {lat: position.coords.latitude, long: position.coords.longitude},
-    //   success: function(e) {
-    //     console.log('success');
-    //     console.log(e);
-    //   }
-    // })
-    window.location.assign('<%= coupons_url %>' + '?lat=' + la + '&lon=' + lo)
-
-
-}
-
-
-</script>
-=======
 <div class="logolink">
-    <%= link_to image_tag("FlashDealLogo.png",:border => 0, :alt => 'logo', :title => ''), coupons_path %>
+    <%= link_to image_tag("FlashDealLogo.png",:class => "logo", :border => 0, :alt => 'logo', :title => ''), coupons_path %>
 </div>​
 <div id="prompt">
   <h5 class="text-center">Check Flash Deals In Your Area</h5>
@@ -187,5 +137,3 @@ function showPosition(position) {
   </div>
 </div> -->
 <!-- login/register modal end -->
-</body>
->>>>>>> a6b1788b73ac9ce716a80d17cc6c195a1fd1171c
