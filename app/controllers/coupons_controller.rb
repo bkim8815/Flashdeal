@@ -95,6 +95,7 @@ class CouponsController < ApplicationController
   def getlatlong
     @lat =params[:lat]
     @long =params[:long]
+
     # render json: { lat: @lat, lang: @long }
   end
 end
