@@ -7,8 +7,8 @@ gem 'rails_12factor'
 gem 'paperclip'
 gem 'aws-sdk', '<2'
 gem 'dotenv-rails'
-gem 'devise'
 gem 'gmaps4rails', '>= 2.1.2'
+gem 'twilio-ruby'
 
 
 

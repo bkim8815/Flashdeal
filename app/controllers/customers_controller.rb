@@ -30,7 +30,16 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to restaurant_coupons_path, notice: 'Customer was successfully created.' }
+
+        # set up a client to talk to the Twilio REST API
+       @client = Twilio::REST::Client.new ENV['account_sid'], ENV['auth_token']
+
+       @client.account.messages.create({
+        :from => '+19548585330',
+        :to => @customer.phone_number,
+        :body => 'Thank you for subscribing!!',
+       })
+        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
       else
         format.html { render :new }
