@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  before_action :set_rest, only: [:new, :create]
+
 
   # GET /customers
   # GET /customers.json
@@ -15,11 +15,7 @@ class CustomersController < ApplicationController
 
   # GET /customers/new
   def new
-    # @coupon_id = params[:coupon_id]
     @customer = Customer.new
-
-    # return @customer, @coupon_id
-
   end
 
   # GET /customers/1/edit
@@ -30,7 +26,9 @@ class CustomersController < ApplicationController
   # POST /customers.json
   def create
     coupon_id = params[:coupon_id]
+
     c = Coupon.find_by(coupon_id)
+
     r = Restaurant.find_by(c.restaurant_id)
     @customer = Customer.new(customer_params)
 
@@ -85,9 +83,6 @@ class CustomersController < ApplicationController
       @customer = Customer.find(params[:id])
     end
 
-    def set_rest
-      @restaurant = Restaurant.find(params[:restaurant_id])
-    end
 
 
 

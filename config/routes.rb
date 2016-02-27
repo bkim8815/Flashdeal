@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
+  resources :phones
+  resources :customers
   resources :coupons
 
 
-  resources :restaurants do
-    resources :customers
 
-  end
   root 'landing#index'
 
   post '/location' => 'coupons#index'

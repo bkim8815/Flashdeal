@@ -1,4 +1,4 @@
-<%= form_for [@restaurant, @customer] do |f| %>
+<%= form_for (@customer) do |f| %>
   <% if @customer.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
@@ -14,6 +14,11 @@
   <div class="field">
     <%= f.label :phone_number %><br>
     <%= f.text_field :phone_number %>
+  </div>
+
+  <div class="field">
+
+    <%= f.hidden_field :coupon_id, :value => @coupon_id %>
   </div>
   <div class="field">
     <%= f.label :latitude %><br>
