@@ -41,7 +41,14 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
     <% @coupons.each do |coupon| %>
       <tr>
         <td><%= image_tag coupon.picture.url %></td>
-        <td><%= link_to coupon.title, coupon %></td>
+        <td>
+          <% if coupon.expiration == false %>
+            <%= link_to coupon.title, coupon %>
+          <% else %>
+            <%= coupon.title %>
+          <% end %>
+        </td>
+
         <td><%= coupon.price %></td>
 
         <td><%= coupon.end_time %></td>

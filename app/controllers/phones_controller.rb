@@ -14,8 +14,13 @@ class PhonesController < ApplicationController
 
   # GET /phones/new
   def new
-    @phone = Phone.new
-    @promotion = Promotion.new
+    # @phone = Phone.new
+    # @promotion = Promotion.new
+    # if @promotion.coupon_id == @coupon_id
+    #   //couter
+    # else
+
+
   end
 
   # GET /phones/1/edit
@@ -45,6 +50,15 @@ class PhonesController < ApplicationController
         :to => '+1'+@phone.mobile,
         :body => 'testing coupon is!!!',
        })
+
+       if c.max_count < 1
+         c.expiration = true
+         c.save
+       else
+         c.max_count = c.max_count - 1
+         c.save
+       end
+
 
 
         format.html { redirect_to @phone, notice: 'Phone was successfully created.' }
