@@ -41,7 +41,7 @@ class CustomersController < ApplicationController
 
        @client.account.messages.create({
         :from => '+19548585330',
-        :to => @customer.phone_number,
+        :to => '+1'+@customer.phone_number,
         :body => 'Thank you for subscribing!!',
        })
         format.html { redirect_to root_path , notice: 'Customer was successfully created.' }

@@ -15,6 +15,10 @@
     <%= f.label :mobile %><br>
     <%= f.number_field :mobile %>
   </div>
+  <div class="field">
+
+    <%= f.hidden_field :coupon_id, :value => @coupon_id %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

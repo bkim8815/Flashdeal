@@ -1,5 +1,13 @@
 <p id="notice"><%= notice %></p>
 
+<%= form_for (@phone)  do |f| %>
+  <div class="field">
+  <%= f.label :mobile %>
+  <%= f.text_field :mobile %>
+  </div>
+  <%= f.submit %>
+<% end %>
+
 <p>
   <strong>Coupon:</strong>
   <%= @coupon.title %>

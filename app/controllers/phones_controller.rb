@@ -24,10 +24,28 @@ class PhonesController < ApplicationController
   # POST /phones
   # POST /phones.json
   def create
+
+    coupon_id = params[:coupon_id]
+    c = Coupon.find_by(coupon_id)
+
+
+
     @phone = Phone.new(phone_params)
 
     respond_to do |format|
       if @phone.save
+
+        @phone.promotions.new(phone_id: @phone.id, coupon_id: c.id).save
+        # set up a client to talk to the Twilio REST API
+       @client = Twilio::REST::Client.new ENV['account_sid'], ENV['auth_token']
+
+       @client.account.messages.create({
+        :from => '+19548585330',
+        :to => '+1'+@phone.mobile,
+        :body => 'testing coupon is!!!',
+       })
+
+
         format.html { redirect_to @phone, notice: 'Phone was successfully created.' }
         format.json { render :show, status: :created, location: @phone }
       else

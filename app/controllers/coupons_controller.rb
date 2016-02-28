@@ -25,6 +25,7 @@ class CouponsController < ApplicationController
   # GET /coupons/1
   # GET /coupons/1.json
   def show
+    @phone=Phone.new
   end
 
   # GET /coupons/new
@@ -44,7 +45,7 @@ class CouponsController < ApplicationController
 
     respond_to do |format|
       if @coupon.save
-        
+
         format.html { redirect_to @coupon, notice: 'Coupon was successfully created.' }
         format.json { render :show, status: :created, location: @coupon }
       else
