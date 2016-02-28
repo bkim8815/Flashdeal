@@ -15,6 +15,7 @@ class PhonesController < ApplicationController
   # GET /phones/new
   def new
     @phone = Phone.new
+    @promotion = Promotion.new
   end
 
   # GET /phones/1/edit
@@ -35,7 +36,7 @@ class PhonesController < ApplicationController
     respond_to do |format|
       if @phone.save
 
-        @phone.promotions.new(phone_id: @phone.id, coupon_id: c.id).save
+        Promotion.create(phone_id: @phone.id, coupon_id: c.id)
         # set up a client to talk to the Twilio REST API
        @client = Twilio::REST::Client.new ENV['account_sid'], ENV['auth_token']
 

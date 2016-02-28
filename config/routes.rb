@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   resources :coupons
 
 
+  resources :coupons do
+    resources :phones
+
+  end
+
 
   root 'landing#index'
 

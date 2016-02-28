@@ -35,7 +35,7 @@ class CustomersController < ApplicationController
     respond_to do |format|
       if @customer.save
 
-        @customer.subscriptions.new(customer_id: @customer.id, restaurant_id: r.id, status: true).save
+        Subscription.create(customer_id: @customer.id, restaurant_id: r.id, status: true)
         # set up a client to talk to the Twilio REST API
        @client = Twilio::REST::Client.new ENV['account_sid'], ENV['auth_token']
 
