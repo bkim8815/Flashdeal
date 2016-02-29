@@ -7,17 +7,17 @@
 
 <p id="notice"><%= notice %></p>
 <center>
-<h1>Listing Coupons</h1>
+  <h1>Listing Coupons</h1>
 </center>
 
- <div id="map" style='width: 100%; height: 300px;'></div>
+<div id="map" style='width: 100%; height: 300px;'></div>
 </div>
 <script>
 handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
- markers = handler.addMarkers(<%=raw @map_hash.to_json %>);
- handler.bounds.extendWith(markers);
- handler.fitMapToBounds();
+  markers = handler.addMarkers(<%=raw @map_hash.to_json %>);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
 });
 
 
@@ -42,33 +42,35 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 
     <% @coupons.each do |coupon| %>
     <div class= "coupon_count"
-      <tr>
+    <tr>
       <div class="col-md-6">
-        <td><img id="itemPics"<%= image_tag coupon.picture.url %></td>
-        <td>
-      </div>
-      <div class="col-md-6">
-          <% if coupon.expiration == false %>
-            <%= link_to coupon.title, coupon %>
-          <% else %>
-            <%= coupon.title %>
-          <% end %>
-        </td>
-
-        <td><%= coupon.price %></td>
-        <%= content_tag(:td, '', :class => "tim_#{counter}") %>
-        <!-- <%= content_tag(:td,'' , :class => "tim") %> -->
-        <td><% coupon.expiration %></td>
-
-
-
-      </tr>
-      <div id="count">
-      <%= content_tag(:span, coupon.end_time.hour, :class => "hour_#{counter}") %>
-      <%= content_tag(:span, coupon.end_time.min, :class => "min_#{counter}") %>
-      <% counter += counter %>
+        <% if coupon.expiration == true || coupon.end_time < Time.now %>
+        <% coupon.expiration = true %>
+        <% coupon.max_count = 0 %>
+        <% coupon.save %>
+    <% else  %>
+    <td><img id="itemPics"<%= image_tag coupon.picture.url %></td>
+    <td>
     </div>
+    <div class="col-md-6">
+      <%= link_to coupon.title, coupon %>
+    </td>
+
+    <td><%= coupon.price %></td>
+    <%= content_tag(:td, '', :class => "tim_#{counter}") %>
+
+
+
+  </tr>
+  <div id="count">
+    <%= content_tag(:span, coupon.end_time.hour, :class => "hour_#{counter}") %>
+    <%= content_tag(:span, coupon.end_time.min, :class => "min_#{counter}") %>
+    <% counter += counter %>
   </div>
+</div>
+
+    <% end %>
+
 
     <% end %>
   </tbody>
