@@ -38,10 +38,8 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   </thead>
 
   <tbody>
-    <% hour = 1 %>
-    <% min = 1 %>
-    <% secs = 1 %>
-    <% tim = 1 %>
+    <% counter = 1 %>
+
     <% @coupons.each do |coupon| %>
     <div class= "coupon_count"
       <tr>
@@ -58,23 +56,19 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
         </td>
 
         <td><%= coupon.price %></td>
-        <%= content_tag(:td, '', :class => "tim_#{tim}") %>
+        <%= content_tag(:td, '', :class => "tim_#{counter}") %>
         <!-- <%= content_tag(:td,'' , :class => "tim") %> -->
         <td><% coupon.expiration %></td>
 
-      </div>
 
 
       </tr>
+      <div id="count">
+      <%= content_tag(:span, coupon.end_time.hour, :class => "hour_#{counter}") %>
+      <%= content_tag(:span, coupon.end_time.min, :class => "min_#{counter}") %>
+      <% counter += counter %>
     </div>
-      <div class="count">
-      <td class="hour">  <%= coupon.end_time.hour  %></td>
-      <%= content_tag(:td, coupon.end_time.hour, :class => "hour_#{hour}") %>
-      <%= content_tag(:td, coupon.end_time.min, :class => "min_#{min}") %>
-      <% hour += hour %>
-      <% min += min %>
-      <% tim += tim %>
-    </div>
+  </div>
 
     <% end %>
   </tbody>

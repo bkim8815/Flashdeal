@@ -19,11 +19,17 @@ function ready() {
     window.location.assign('/coupons' + '?lat=' + la + '&lon=' + lo);
   }
 
-  var time = $('.hour_1').text() + ":" + $('.min_1').text() + ":" + "00"
+ for(var i = 1; i < 1000 ; i++) {
+  var time = $('.hour_' + i).text() + ":" + $('.min_' + i).text() + ":" + "00"
   var timer = (new Date (new Date().toDateString() + ' ' + time ))
-  jQuery('.tim_1').countdown(timer , function(event) {
+  jQuery('.tim_' + i).countdown(timer , function(event) {
   $(this).html(event.strftime('%H:%M:%S'));
-  });
+
+}).on('finish.countdown', function() {
+  $(this).replaceWith('<p>Expired!</p>')
+});
+}
+
 
 
 }
