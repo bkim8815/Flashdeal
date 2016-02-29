@@ -21,12 +21,14 @@
     <% @coupons.each do |coupon| %>
       <tr>
         <td><%= image_tag coupon.picture.url %></td>
-  
+
 
         <td><%= coupon.price %></td>
 
         <td><%= coupon.end_time %></td>
-        <td><% coupon.expiration %></td>
+        <td><%= coupon.expiration %></td>
+        <td><%= link_to 'Show', [@restaurant, coupon] %></td>
+
 
 
 
