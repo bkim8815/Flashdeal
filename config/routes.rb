@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   resources :phones
   resources :customers
   resources :coupons
+  resources :restaurants
+  resource :sessions
 
 
   resources :coupons do
@@ -13,6 +17,8 @@ Rails.application.routes.draw do
   root 'landing#index'
 
   post '/location' => 'coupons#index'
+
+  get '/restaurants/:restaurant_id/only' => 'coupons#only', :as => :only
 
   resources :restaurants do
     resources :coupons

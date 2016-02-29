@@ -18,7 +18,16 @@ function ready() {
 
     window.location.assign('/coupons' + '?lat=' + la + '&lon=' + lo);
   }
+
+  var time = $('.hour_1').text() + ":" + $('.min_1').text() + ":" + "00"
+  var timer = (new Date (new Date().toDateString() + ' ' + time ))
+  jQuery('.tim_1').countdown(timer , function(event) {
+  $(this).html(event.strftime('%H:%M:%S'));
+  });
+
+
 }
+
 
 
 $(document).on('ready page:load', ready);
