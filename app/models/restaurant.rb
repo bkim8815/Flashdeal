@@ -1,6 +1,11 @@
 class Restaurant < ActiveRecord::Base
   has_many :coupons
   has_many :customers, through: :subscriptions
+  has_secure_password
+  validates :email, uniqueness: true
+
+
+
 
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?

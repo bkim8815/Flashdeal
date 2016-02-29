@@ -9,6 +9,7 @@ gem 'aws-sdk', '<2'
 gem 'dotenv-rails'
 gem 'gmaps4rails', '>= 2.1.2'
 gem 'twilio-ruby'
+gem 'bcrypt', '~> 3.1', '>= 3.1.10'
 
 
 
