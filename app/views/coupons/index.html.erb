@@ -6,11 +6,11 @@
 
 
 <p id="notice"><%= notice %></p>
-
+<center>
 <h1>Listing Coupons</h1>
+</center>
 
-<div style='width: 800px;'>
- <div id="map" style='width: 800px; height: 400px;'></div>
+ <div id="map" style='width: 100%; height: 300px;'></div>
 </div>
 <script>
 handler = Gmaps.build('Google');
@@ -38,10 +38,18 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   </thead>
 
   <tbody>
+    <% hour = 1 %>
+    <% min = 1 %>
+    <% secs = 1 %>
+    <% tim = 1 %>
     <% @coupons.each do |coupon| %>
+    <div class= "coupon_count"
       <tr>
-        <td><%= image_tag coupon.picture.url %></td>
+      <div class="col-md-6">
+        <td><img id="itemPics"<%= image_tag coupon.picture.url %></td>
         <td>
+      </div>
+      <div class="col-md-6">
           <% if coupon.expiration == false %>
             <%= link_to coupon.title, coupon %>
           <% else %>
@@ -50,15 +58,27 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
         </td>
 
         <td><%= coupon.price %></td>
-
-        <td><%= coupon.end_time %></td>
+        <%= content_tag(:td, '', :class => "tim_#{tim}") %>
+        <!-- <%= content_tag(:td,'' , :class => "tim") %> -->
         <td><% coupon.expiration %></td>
-        <button>
+
+      </div>
 
 
       </tr>
+    </div>
+      <div class="count">
+      <td class="hour">  <%= coupon.end_time.hour  %></td>
+      <%= content_tag(:td, coupon.end_time.hour, :class => "hour_#{hour}") %>
+      <%= content_tag(:td, coupon.end_time.min, :class => "min_#{min}") %>
+      <% hour += hour %>
+      <% min += min %>
+      <% tim += tim %>
+    </div>
+
     <% end %>
   </tbody>
 </table>
+
 
 <br>
