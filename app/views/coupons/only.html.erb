@@ -1,0 +1,39 @@
+<h1>test</h1>
+
+
+</script>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Price</th>
+
+      <th>End time</th>
+
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @coupons.each do |coupon| %>
+      <tr>
+        <td><%= image_tag coupon.picture.url %></td>
+  
+
+        <td><%= coupon.price %></td>
+
+        <td><%= coupon.end_time %></td>
+        <td><% coupon.expiration %></td>
+
+
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'New Coupon?', new_restaurant_coupon_path %>
+
+<br>

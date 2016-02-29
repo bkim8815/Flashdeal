@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227224900) do
+ActiveRecord::Schema.define(version: 20160228204742) do
 
   create_table "coupons", force: :cascade do |t|
     t.string   "title"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20160227224900) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.string   "password_digest"
   end
 
   create_table "subscriptions", force: :cascade do |t|

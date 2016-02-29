@@ -2,6 +2,7 @@ class CouponsController < ApplicationController
   before_action :set_coupon, only: [:show, :edit, :update, :destroy]
   before_action :set_restaurant, only: [:new, :create]
   before_action :getlatlong, only: [:index]
+  before_action :require_logged_in, only: [:new, :create, :update, :destroy, :only]
 
   # GET /coupons
   # GET /coupons.json
@@ -50,7 +51,7 @@ class CouponsController < ApplicationController
 
   # GET /coupons/new
   def new
-    @coupon = Coupon.new
+    @coupon = current_restaurant.coupons.new
   end
 
   # GET /coupons/1/edit
@@ -66,7 +67,7 @@ class CouponsController < ApplicationController
     respond_to do |format|
       if @coupon.save
 
-        format.html { redirect_to @coupon, notice: 'Coupon was successfully created.' }
+        format.html { redirect_to only_path(@restaurant), notice: 'Coupon was successfully created.' }
         format.json { render :show, status: :created, location: @coupon }
       else
         format.html { render :new }
@@ -98,6 +99,15 @@ class CouponsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+
+
+  def only
+    @coupons = Coupon.where(restaurant_id: params[:restaurant_id])
+
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
