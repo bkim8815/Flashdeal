@@ -1,28 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Business Name:</strong>
   <%= @restaurant.name %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>User Email:</strong>
   <%= @restaurant.email %>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>Business Address:</strong>
   <%= @restaurant.address %>
 </p>
 
 <p>
-  <strong>Latitude:</strong>
-  <%= @restaurant.latitude %>
+
+  <% @restaurant.latitude %>
 </p>
 
 <p>
-  <strong>Longitude:</strong>
-  <%= @restaurant.longitude %>
+
+  <% @restaurant.longitude %>
 </p>
 <%= image_tag @restaurant.logo.url(:medium) %>
 
