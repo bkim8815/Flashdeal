@@ -44,7 +44,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
         <% coupon.max_count = 0 %>
         <% coupon.save %>
       <% else  %>
-          <%= image_tag coupon.picture.url(:medium) %>
+          <td><%= image_tag coupon.picture.url(:medium) %></td>
           <td><%= link_to coupon.title, coupon %></td>
           <td><%= coupon.price %></td>
           <%= content_tag(:td, '', :class => "tim_#{counter}") %>

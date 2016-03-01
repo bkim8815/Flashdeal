@@ -4,14 +4,15 @@
   <div class="field">
   <%= f.label :mobile %>
   <%= f.text_field :mobile %>
+  <%= f.submit 'Claim this Coupon!' %>
   </div>
-  <%= f.submit %>
 <% end %>
 
 <p>
   <strong>Coupon:</strong>
   <%= @coupon.title %>
 </p>
+<p><%= image_tag @coupon.picture.url(:medium) %></p>
 
 
 <p>
@@ -35,20 +36,23 @@
 </p>
 
 <p>
-  <strong>Max count:</strong>
+  <strong>Number of Remaining Coupons:</strong>
   <%= @coupon.max_count %>
 </p>
 
+<h3>Restaurant Information: </h3>
 <p>
   <strong>Restaurant name:</strong>
   <%= @coupon.restaurant.name %>
-</p>
-<p>
-  <strong>Restaurant:</strong>
   <%= image_tag @coupon.restaurant.logo %>
 </p>
 
-<%= image_tag @coupon.picture.url(:medium) %>
+
+
 
 <%= link_to 'Follow this Restaurant!', new_customer_path(:coupon_id => @coupon.id) %>|
+<% if current_restaurant %>
+  <%= link_to 'Edit', edit_coupon_path %>|
+<% else %>
+<% end %>
 <%= link_to 'Back', coupons_path %>
