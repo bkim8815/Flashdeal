@@ -80,7 +80,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.zoho.com',
     port:                 587,
-    domain:               'doralworld.com',
+    domain:               'zoho.com',
     user_name:            'flashdeal@doralworld.com',
     password:             '1q2w3e4r',
     authentication:       'plain',
