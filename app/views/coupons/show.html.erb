@@ -1,11 +1,15 @@
 <p id="notice"><%= notice %></p>
+<% if current_restaurant %>
 
-<%= form_for (@phone)  do |f| %>
-  <div class="field">
-  <%= f.label :mobile %>
-  <%= f.text_field :mobile %>
-  <%= f.submit 'Claim this Coupon!' %>
-  </div>
+<% else %>
+
+  <%= form_for (@phone)  do |f| %>
+    <div class="field">
+    <%= f.label :mobile %>
+    <%= f.text_field :mobile %>
+    <%= f.submit 'Claim this Coupon!' %>
+    </div>
+  <% end %>
 <% end %>
 
 <p>
