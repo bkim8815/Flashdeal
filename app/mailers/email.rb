@@ -1,5 +1,5 @@
 class Email < ApplicationMailer
-  default from: "no-reply@flashdeals.com"
+  default from: "flashdeal@doralworld.com"
 
 def welcome(restaurant)
 @restaurant = restaurant
