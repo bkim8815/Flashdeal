@@ -19,8 +19,6 @@ class CouponsController < ApplicationController
           @somethingelse << coupon
 
 
-
-
       end
 
 
@@ -108,7 +106,7 @@ class CouponsController < ApplicationController
 
   end
 
-  
+
 
 
   private
