@@ -76,15 +76,15 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.action_mailer.delivery_method = :sendmail
-# Defaults to:
-# config.action_mailer.sendmail_settings = {
-#   location: '/usr/sbin/sendmail',
-#   arguments: '-i -t'
-# }
-config.action_mailer.perform_deliveries = true
-config.action_mailer.raise_delivery_errors = true
-config.action_mailer.default_options = {from: 'no-reply@example.com'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.zoho.com',
+    port:                 587,
+    domain:               'doralworld.com',
+    user_name:            'flashdeal@doralworld.com',
+    password:             '1q2w3e4r',
+    authentication:       'plain',
+    enable_starttls_auto: true  }
 
 # config/environments/production.rb
 config.paperclip_defaults = {

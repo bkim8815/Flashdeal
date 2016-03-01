@@ -1,6 +1,5 @@
 <h1>test</h1>
 
-<%= area_chart Promotion.group_by_minute(:created_at).count %>
 
 <table>
   <thead>
@@ -25,7 +24,9 @@
         <td><%= coupon.price %></td>
 
         <td><%= coupon.end_time %></td>
-        <td><% coupon.expiration %></td>
+        <td><%= coupon.expiration %></td>
+        <td><%= link_to 'Show', [@restaurant, coupon] %></td>
+
 
 
 

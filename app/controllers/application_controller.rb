@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   def require_logged_in
     return true if current_restaurant
 
-    return redirect_to 'http://www.google.com'
+    return redirect_to new_sessions_path
 
   end
 
