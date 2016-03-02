@@ -11,13 +11,12 @@ class CouponsController < ApplicationController
     @coupons = Coupon.all
     @somethingelse = []
     @coupons.each do |coupon|
-      if (coupon.restaurant.latitude < (@lat.to_f + 0.014)) && (coupon.restaurant.latitude > (@lat.to_f - 0.014))
-        if (coupon.restaurant.longitude < (@long.to_f + 0.018)) && (coupon.restaurant.longitude > (@long.to_f - 0.018))
+      if (coupon.restaurant.latitude < (@lat.to_f + 10)) && (coupon.restaurant.latitude > (@lat.to_f - 10))
+        if (coupon.restaurant.longitude < (@long.to_f + 10)) && (coupon.restaurant.longitude > (@long.to_f - 10))
 
 
         end
           @somethingelse << coupon
-
 
       end
 
