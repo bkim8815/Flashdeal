@@ -69,7 +69,19 @@ class CouponsController < ApplicationController
 
     respond_to do |format|
       if @coupon.save
+        @subscriptions = Subscription.all
 
+        @subscriptions.each do |subs|
+        if subs.restaurant_id == @coupon.restaurant_id
+        @client = Twilio::REST::Client.new ENV['account_sid'], ENV['auth_token']
+
+        @client.account.messages.create({
+         :from => '+19548585330',
+         :to => '+1'+subs.customer.phone_number,
+         :body => "#{@restaurant.name} has a new offer for you, click #{ coupon_url(@coupon.id) } to claim it!"
+        })
+      end
+    end
         format.html { redirect_to only_path(@restaurant), notice: 'Coupon was successfully created.' }
         format.json { render :show, status: :created, location: @coupon }
       else
