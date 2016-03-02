@@ -49,7 +49,8 @@ class CouponsController < ApplicationController
   # GET /coupons/1
   # GET /coupons/1.json
   def show
-    @phone=Phone.new
+    @phone = Phone.new
+    @phone.mobile = params[:phone_number]
   end
 
   # GET /coupons/new
