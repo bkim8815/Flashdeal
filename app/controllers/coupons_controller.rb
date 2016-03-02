@@ -48,7 +48,8 @@ class CouponsController < ApplicationController
   # GET /coupons/1
   # GET /coupons/1.json
   def show
-    @phone=Phone.new
+    @phone = Phone.new
+    @phone.mobile = params[:phone_number]
   end
 
   # GET /coupons/new
@@ -77,7 +78,7 @@ class CouponsController < ApplicationController
         @client.account.messages.create({
          :from => '+19548585330',
          :to => '+1'+subs.customer.phone_number,
-         :body => "#{@restaurant.name} has a new offer for you, click #{ coupon_url(@coupon.id) } to claim it!"
+         :body => "#{@restaurant.name} has a new offer for you, click #{ coupon_url(@coupon.id, phone_number: subs.customer.phone_number  ) } to claim it!"
         })
       end
     end
@@ -133,7 +134,7 @@ class CouponsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coupon_params
-      params.require(:coupon).permit(:title, :price, :start_time, :end_time, :expiration, :max_count, :Restaurant_id, :picture)
+      params.require(:coupon).permit(:title, :price, :start_time, :end_time, :expiration, :max_count, :restaurant_id, :picture)
     end
     def set_restaurant
       @restaurant = Restaurant.find(params[:restaurant_id])
