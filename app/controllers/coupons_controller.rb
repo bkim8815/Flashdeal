@@ -35,10 +35,10 @@ class CouponsController < ApplicationController
       if coupon.expiration == true
 
       else
-      marker.lat coupon.restaurant.latitude
-      marker.lng coupon.restaurant.longitude
-      marker.infowindow coupon.price
-    end
+        marker.lat coupon.restaurant.latitude
+        marker.lng coupon.restaurant.longitude
+        marker.infowindow coupon.price
+      end
 
     end
 
