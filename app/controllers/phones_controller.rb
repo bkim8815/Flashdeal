@@ -32,7 +32,7 @@ class PhonesController < ApplicationController
   def create
 
     coupon_id = params[:coupon_id]
-    c = Coupon.find(coupon_id)
+    c = Coupon.find_by_id(coupon_id)
 
 
 
