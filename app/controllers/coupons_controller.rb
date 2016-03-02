@@ -33,12 +33,12 @@ class CouponsController < ApplicationController
 
     @map_hash=Gmaps4rails.build_markers(@somethingelse) do |coupon, marker|
       if coupon.expiration == true
-        
+
       else
-      marker.lat coupon.restaurant.latitude
-      marker.lng coupon.restaurant.longitude
-      marker.infowindow coupon.price
-    end
+        marker.lat coupon.restaurant.latitude
+        marker.lng coupon.restaurant.longitude
+        marker.infowindow coupon.price
+      end
 
     end
 
