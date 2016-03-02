@@ -15,7 +15,7 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.10'
 
 
 group :development do
-  gem 'sqlite3'
+  gem 'pg'
 
 end
 
