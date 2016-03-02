@@ -24,6 +24,14 @@
   <strong>Price:</strong>
   <%= @coupon.price %>
 </p>
+<% if current_restaurant %>
+  <p>
+    <strong>promocode:</strong>
+    <%= @coupon.promocode %>
+  </p>
+<% else %>
+<% end %>
+
 
 <p>
   <strong>Start time:</strong>
