@@ -27,9 +27,9 @@ class CustomersController < ApplicationController
   def create
     coupon_id = params[:coupon_id]
 
-    c = Coupon.find_by(coupon_id)
+    c = Coupon.find(coupon_id)
 
-    r = Restaurant.find_by(c.restaurant_id)
+    r = Restaurant.find(c.restaurant_id)
     @customer = Customer.new(customer_params)
 
     respond_to do |format|

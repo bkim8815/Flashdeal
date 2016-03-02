@@ -32,7 +32,7 @@ class PhonesController < ApplicationController
   def create
 
     coupon_id = params[:coupon_id]
-    c = Coupon.find_by(coupon_id)
+    c = Coupon.find(coupon_id)
 
 
 
@@ -58,7 +58,7 @@ class PhonesController < ApplicationController
          c.max_count = c.max_count - 1
          c.save
        end
-      
+
 
 
 
