@@ -62,7 +62,7 @@ class PhonesController < ApplicationController
 
 
 
-        format.html { redirect_to @phone, notice: 'Phone was successfully created.' }
+        format.html { redirect_to coupons_path, notice: 'Thank you!. You will receive a SMS with your promo code.' }
         format.json { render :show, status: :created, location: @phone }
       else
         format.html { render :new }
