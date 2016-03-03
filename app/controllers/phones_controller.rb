@@ -48,7 +48,7 @@ class PhonesController < ApplicationController
        @client.account.messages.create({
         :from => '+19548585330',
         :to => '+1'+@phone.mobile,
-        :body => 'testing coupon is!!!',
+        :body => "Thank you! your coupon promo code is #{c.promocode}",
        })
 
        if c.max_count < 1
@@ -58,11 +58,11 @@ class PhonesController < ApplicationController
          c.max_count = c.max_count - 1
          c.save
        end
-      
 
 
 
-        format.html { redirect_to @phone, notice: 'Phone was successfully created.' }
+
+        format.html { redirect_to coupons_path, notice: 'Thank you!. You will receive a SMS with your promo code.' }
         format.json { render :show, status: :created, location: @phone }
       else
         format.html { render :new }

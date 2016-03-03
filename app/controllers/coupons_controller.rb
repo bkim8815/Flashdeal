@@ -11,24 +11,16 @@ class CouponsController < ApplicationController
     @coupons = Coupon.all
     @somethingelse = []
     @coupons.each do |coupon|
-      if (coupon.restaurant.latitude < (@lat.to_f + 0.014)) && (coupon.restaurant.latitude > (@lat.to_f - 0.014))
-        if (coupon.restaurant.longitude < (@long.to_f + 0.018)) && (coupon.restaurant.longitude > (@long.to_f - 0.018))
+      if (coupon.restaurant.latitude < (@lat.to_f + 10)) && (coupon.restaurant.latitude > (@lat.to_f - 10))
+        if (coupon.restaurant.longitude < (@long.to_f + 10)) && (coupon.restaurant.longitude > (@long.to_f - 10))
 
 
         end
           @somethingelse << coupon
 
-
       end
 
-
-
     end
-
-
-
-
-
 
 
     @map_hash=Gmaps4rails.build_markers(@somethingelse) do |coupon, marker|
@@ -135,7 +127,7 @@ class CouponsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coupon_params
-      params.require(:coupon).permit(:title, :price, :start_time, :end_time, :expiration, :max_count, :restaurant_id, :picture)
+      params.require(:coupon).permit(:title, :price, :start_time, :end_time, :expiration, :max_count, :restaurant_id, :picture, :promocode)
     end
     def set_restaurant
       @restaurant = Restaurant.find(params[:restaurant_id])

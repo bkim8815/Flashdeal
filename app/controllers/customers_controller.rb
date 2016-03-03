@@ -29,7 +29,7 @@ class CustomersController < ApplicationController
 
     c = Coupon.find_by(coupon_id)
 
-    r = Restaurant.find_by(c.restaurant_id)
+    r = Restaurant.find(c.restaurant_id)
     @customer = Customer.new(customer_params)
 
     respond_to do |format|

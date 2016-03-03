@@ -23,9 +23,21 @@
   <%= csrf_meta_tags %>
 
 </head>
+
 <body>
 
-<%= yield %>
+  <% if current_restaurant %>
+    <div class='nav_item'>
+      <%= link_to 'Log Out', logout_path, class: 'btn btn-small' %>
+    </div>
+  <% else %>
+    <div class='nav_item'>
+      <%= link_to 'Login', new_sessions_path, class: 'btn btn-small' %>
+    </div>
+  <% end %>
+
+    <%= yield %>
+
 
 </body>
 </html>
