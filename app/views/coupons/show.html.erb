@@ -9,7 +9,7 @@
   </div>
   <div class="coupon-price"><h5><%= number_to_currency @coupon.price %></h5></div>
   <div><h5>Started at <%= @coupon.start_time.strftime("%l:%M %P") %></h5></div>
-  <div><h5>Ends at<%= @coupon.end_time.strftime("%l:%M %P") %></h5></div>
+  <div><h5>Ends at <%= @coupon.end_time.strftime("%l:%M %P") %></h5></div>
   <!-- <p>
     <strong>Expiration:</strong>
     <%= @coupon.expiration %>
@@ -31,16 +31,18 @@
 <% if current_restaurant %>
 
 <% else %>
-<div class="field container claim-form">
-  <%= form_for (@phone)  do |f| %>
-      <%= f.label "Enter your phone number" %>
-      <%= f.text_field :mobile, class:"form-control" %>
+<div class="">
+  <div class="field container claim">
+    <%= form_for (@phone)  do |f| %>
+        <%= f.label "Enter your phone number" %>
+        <%= f.text_field :mobile, class:"form-control" %>
 
-      <div class="text-center"><%= f.submit 'Claim this Coupon!', class:"btn-lg btn-danger" %>
-      </div>
-    </div>
+        <div class="text-center"><%= f.submit 'Claim this Coupon!', class:"btn-lg btn-danger" %>
+        </div>
+  </div>
   <% end %>
 <% end %>
+
 
 
 
