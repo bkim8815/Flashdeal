@@ -127,7 +127,7 @@ class CouponsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coupon_params
-      params.require(:coupon).permit(:title, :price, :start_time, :end_time, :expiration, :max_count, :restaurant_id, :picture)
+      params.require(:coupon).permit(:title, :price, :start_time, :end_time, :expiration, :max_count, :restaurant_id, :picture, :promocode)
     end
     def set_restaurant
       @restaurant = Restaurant.find(params[:restaurant_id])

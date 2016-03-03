@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+
+  get '/logout', to: 'sessions#destroy', :as => :logout
+
 
   resources :phones
   resources :customers
