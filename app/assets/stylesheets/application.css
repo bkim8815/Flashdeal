@@ -13,6 +13,6 @@
  *= require_tree .
  *= require_self
  */
-a {
-  color: #90958F;
+body {
+  font-family: 'Montserrat', sans-serif;
 }
