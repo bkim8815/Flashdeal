@@ -38,7 +38,7 @@
   </div>
   <div class="field">
     <%= f.label :picture %><br>
-    <%= f.file_field :picture %>
+    <%= f.file_field :picture, enctype:"multipart/form-data", action:'/photos' %>
   </div>
   <div class="field">
     <%= f.label :promocode %><br>
