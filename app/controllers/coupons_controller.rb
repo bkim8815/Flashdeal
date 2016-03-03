@@ -20,14 +20,7 @@ class CouponsController < ApplicationController
 
       end
 
-
-
     end
-
-
-
-
-
 
 
     @map_hash=Gmaps4rails.build_markers(@somethingelse) do |coupon, marker|
