@@ -48,7 +48,7 @@ class PhonesController < ApplicationController
        @client.account.messages.create({
         :from => '+19548585330',
         :to => '+1'+@phone.mobile,
-        :body => 'testing coupon is!!!',
+        :body => "Thank you! your coupon promo code is #{c.promocode}",
        })
 
        if c.max_count < 1
