@@ -12,4 +12,11 @@ class SessionsController < ApplicationController
     redirect_to only_path(@restaurant)
   end
 
+
+
+  def destroy
+    session[:restaurant_id] = nil
+    redirect_to root_url, :notice => "Logged out!"
+  end
+
 end
