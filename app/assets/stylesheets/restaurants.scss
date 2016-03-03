@@ -5,6 +5,9 @@
 
 //restaurant signup background
 .bakery {
-  background: url("restaurantsignup.jpeg") no-repeat center center fixed;
+  background: url("restaurantsignup.jpeg");
+  background-size: cover;
+
+
   color: white;
 }
