@@ -1,10 +1,15 @@
-
-<h1 class="text-center"><%= @coupon.restaurant.name %></h1>
+<%= link_to 'Back', coupons_path, class:"btn btn-primary" %>
+<div class="text-center">
+<h1><%= @coupon.restaurant.name %></h1>
+<%= link_to 'Follow this Restaurant!', new_customer_path(:coupon_id => @coupon.id), class:"btn btn-primary"%>
+</div>
 <div class="col-xs-6 ">
-  <div class="coupon-title"><h3><%= @coupon.title %></h3></div>
+  <div class="coupon-title">
+    <h3><%= @coupon.title %></h3>
+  </div>
   <div class="coupon-price"><h5><%= number_to_currency @coupon.price %></h5></div>
-  <div><h5>Started at<%= @coupon.start_time.strftime("%l:%M %P") %></h5></div>
-  <div><h5>Ended at<%= @coupon.end_time.strftime("%l:%M %P") %></h5></div>
+  <div><h5>Started at <%= @coupon.start_time.strftime("%l:%M %P") %></h5></div>
+  <div><h5>Ends at<%= @coupon.end_time.strftime("%l:%M %P") %></h5></div>
   <!-- <p>
     <strong>Expiration:</strong>
     <%= @coupon.expiration %>
@@ -26,20 +31,17 @@
 <% if current_restaurant %>
 
 <% else %>
-
+<div class="field container claim-form">
   <%= form_for (@phone)  do |f| %>
-    <div class="field container">
-    <%= f.label "Enter your phone number" %>
-    <%= f.text_field :mobile, class:"form-control" %>
+      <%= f.label "Enter your phone number" %>
+      <%= f.text_field :mobile, class:"form-control" %>
 
-    <div class="text-center"><%= f.submit 'Claim this Coupon!', class:"btn-lg btn-danger" %></div>
+      <div class="text-center"><%= f.submit 'Claim this Coupon!', class:"btn-lg btn-danger" %>
+      </div>
     </div>
   <% end %>
 <% end %>
-
-<%= link_to 'Follow this Restaurant!', new_customer_path(:coupon_id => @coupon.id), class:"btn btn-primary" %>
 <% if current_restaurant %>
   <%= link_to 'Edit', edit_coupon_path %>
 <% else %>
 <% end %>
-<%= link_to 'Back', coupons_path, class:"btn btn-primary" %>
