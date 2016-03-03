@@ -41,20 +41,9 @@
     </div>
   <% end %>
 <% end %>
-<<<<<<< HEAD
-=======
-
-<p>
-  <strong>Coupon:</strong>
-  <%= @coupon.title %>
-</p>
-<p><%= image_tag @coupon.picture.url(:medium) %></p>
 
 
-<p>
-  <strong>Price:</strong>
-  <%= @coupon.price %>
-</p>
+
 <% if current_restaurant %>
   <p>
     <strong>promocode:</strong>
@@ -64,38 +53,11 @@
 <% end %>
 
 
-<p>
-  <strong>Start time:</strong>
-  <%= @coupon.start_time %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @coupon.end_time %>
-</p>
-
-<p>
-  <strong>Expiration:</strong>
-  <%= @coupon.expiration %>
-</p>
-
-<p>
-  <strong>Number of Remaining Coupons:</strong>
-  <%= @coupon.max_count %>
-</p>
-
-<h3>Restaurant Information: </h3>
-<p>
-  <strong>Restaurant name:</strong>
-  <%= @coupon.restaurant.name %>
-  <%= image_tag @coupon.restaurant.logo %>
-</p>
-
 
 
 
 <%= link_to 'Follow this Restaurant!', new_customer_path(:coupon_id => @coupon.id) %>|
->>>>>>> 23948f12ac01c02227a45c670f072eac6c0b85a4
+
 <% if current_restaurant %>
   <%= link_to 'Edit', edit_coupon_path %>
 <% else %>
