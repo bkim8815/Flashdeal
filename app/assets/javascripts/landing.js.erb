@@ -8,7 +8,7 @@
 //below is for the current user location!!!
 
 function ready() {
-  $('.logolink').on('click', function(e) {
+  $('#diamondlink').on('click', function(e) {
     if (navigator.geolocation) {
       console.log('here');
       navigator.geolocation.getCurrentPosition(showPosition);

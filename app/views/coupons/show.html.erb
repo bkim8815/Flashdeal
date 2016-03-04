@@ -9,7 +9,7 @@
   </div>
   <div class="coupon-price"><h5><%= number_to_currency @coupon.price %></h5></div>
   <div><h5>Started at <%= @coupon.start_time.strftime("%l:%M %P") %></h5></div>
-  <div><h5>Ends at<%= @coupon.end_time.strftime("%l:%M %P") %></h5></div>
+  <div><h5>Ends at <%= @coupon.end_time.strftime("%l:%M %P") %></h5></div>
   <!-- <p>
     <strong>Expiration:</strong>
     <%= @coupon.expiration %>
@@ -31,30 +31,21 @@
 <% if current_restaurant %>
 
 <% else %>
-<div class="field container claim-form">
-  <%= form_for (@phone)  do |f| %>
-      <%= f.label "Enter your phone number" %>
-      <%= f.text_field :mobile, class:"form-control" %>
+<div class="">
+  <div class="field container claim">
+    <%= form_for (@phone)  do |f| %>
+        <%= f.label "Enter your phone number" %>
+        <%= f.text_field :mobile, class:"form-control" %>
 
-      <div class="text-center"><%= f.submit 'Claim this Coupon!', class:"btn-lg btn-danger" %>
-      </div>
-    </div>
+        <div class="text-center"><%= f.submit 'Claim this Coupon!', class:"btn-lg btn-danger" %>
+        </div>
+  </div>
   <% end %>
 <% end %>
-<<<<<<< HEAD
-=======
-
-<p>
-  <strong>Coupon:</strong>
-  <%= @coupon.title %>
-</p>
-<p><%= image_tag @coupon.picture.url(:medium) %></p>
 
 
-<p>
-  <strong>Price:</strong>
-  <%= @coupon.price %>
-</p>
+
+
 <% if current_restaurant %>
   <p>
     <strong>promocode:</strong>
@@ -64,38 +55,11 @@
 <% end %>
 
 
-<p>
-  <strong>Start time:</strong>
-  <%= @coupon.start_time %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @coupon.end_time %>
-</p>
-
-<p>
-  <strong>Expiration:</strong>
-  <%= @coupon.expiration %>
-</p>
-
-<p>
-  <strong>Number of Remaining Coupons:</strong>
-  <%= @coupon.max_count %>
-</p>
-
-<h3>Restaurant Information: </h3>
-<p>
-  <strong>Restaurant name:</strong>
-  <%= @coupon.restaurant.name %>
-  <%= image_tag @coupon.restaurant.logo %>
-</p>
-
 
 
 
 <%= link_to 'Follow this Restaurant!', new_customer_path(:coupon_id => @coupon.id) %>|
->>>>>>> 23948f12ac01c02227a45c670f072eac6c0b85a4
+
 <% if current_restaurant %>
   <%= link_to 'Edit', edit_coupon_path %>
 <% else %>
