@@ -38,7 +38,7 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
               <% coupon.save %>
             <% else  %>
             <div class="coupon-picture col-xs-4">
-              <%= image_tag coupon.picture.url(:medium) %>
+              <%= image_tag coupon.picture.url(:medium), class:"img-circle" %>
             </div>
             <div class="coupon-description col-xs-4">
               <%= link_to coupon.title, coupon %>
