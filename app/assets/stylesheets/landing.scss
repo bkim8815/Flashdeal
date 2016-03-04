@@ -11,33 +11,8 @@ margin: 0px;
 
 
 
-//
-// .login {
-//   text-align: center;
-//   padding-top: 120px;
-// }
 
-
-// .logolink {
-//   text-align: center;
-//   width  : 100%;
-//   height : auto;
-//   border-radius:  50%;
-//   padding-top: 90px;
-// }
-
-// img {
-//
-//   vertical-align: middle;
-//   height: 85%;
-//   width: 85%;
-//
-// }
-
-
-
-
-//below is for the logo diamond button
+//below is for the  diamond logo button
 
 
 
@@ -159,8 +134,28 @@ a:hover .button:after {
 
 
 
-//below is the business login button
-.loginlink {
+//below is the business login button on landing page
+
+#landinglogin {
+  text-align:center;
+  top: 70%;
+  position: relative;
+}
+#landinglogin a {
+
   color: white;
+}
+
+//running man logo
+#runningman {
+  position: relative;
+  top: 30%;
+  text-align: center;
+
+}
+
+#runningman1 {
+  width: 15em;
+
 
 }

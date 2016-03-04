@@ -12,8 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number %>
+    <div class="phone-text">
+    <%= f.label :enter_phone_number %><br>
+    <%= f.text_field :phone_number, class:"form-control", placeholder:"Phone Number"%>
+    </div>
   </div>
 
   <div class="field">
@@ -27,7 +29,9 @@
     <%= f.hidden_field :longitude %>
   </div>
   <%= f.hidden_field :coupon_id, :value => @coupon_id %>
-  <div class="actions">
-    <%= f.submit 'Subscribe Me!!' %>
+  <div class="actions text-center">
+    <div class="follow-btn">
+    <%= f.submit 'Follow Establishment', class:"btn-lg btn-danger" %>
+    </div>
   </div>
 <% end %>
