@@ -10,14 +10,14 @@
       </ul>
     </div>
   <% end %>
-
+<center>
   <div class="field">
     <div class="phone-text">
-    <%= f.label :enter_phone_number %><br>
+    <%= f.label :enter_your_phone_number %><br>
     <%= f.text_field :phone_number, class:"form-control", placeholder:"Phone Number"%>
     </div>
   </div>
-
+</center>
   <div class="field">
 
     <%= f.hidden_field :coupon_id, :value => @coupon_id %>
