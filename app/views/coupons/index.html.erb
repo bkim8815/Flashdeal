@@ -7,9 +7,7 @@
     <%= link_to 'Log Out', logout_path, class: 'btn btn-small' %>
   </div>
 <% else %>
-  <div class='nav_item'>
-    <%= link_to 'Login', new_sessions_path, class: 'btn btn-small' %>
-  </div>
+
 <% end %>
 
 <div class="container">
@@ -40,13 +38,13 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
             <ul id="coupon">
             <li>
             <div class="coupon-title">
-              <h3><%= link_to coupon.title, coupon %>
+              <h3><%= link_to coupon.title, coupon %>  </h3>
             </div></li>
             <li>
             <div class="coupon-countdown">
               Expires in:
               <%= content_tag(:div,'', :class => "tim_#{counter}") %>
-            </h3>
+
             </div>
 
           </li>
