@@ -30,14 +30,18 @@
       <% coupon.max_count = 0 %>
       <% coupon.save %>
     <% else  %>
+
+    <a href="<%= coupon_path(coupon) %>">
       <div class="coupon-on-index">
+
+
         <div class="coupon-picture">
           <%=  image_tag coupon.picture.url(:thumb), class:"img-circle" %>
         </div>
       <ul id="coupon">
         <li>
           <div class="coupon-title">
-            <h3><%= link_to coupon.title, coupon %>
+            <h3><%= coupon.title %>
           </div></li>
         <li>
           <div class="coupon-countdown">
@@ -51,11 +55,16 @@
         $<%= coupon.price %>
       </div>
 
+
       <div id="count">
         <%= content_tag(:span, coupon.end_time.hour, :class => "hour_#{counter}") %>
         <%= content_tag(:span, coupon.end_time.min, :class => "min_#{counter}") %>
         <% counter += counter %>
       </div>
+
+
   </div>
+</a>
+
   <% end %>
 <% end %>
