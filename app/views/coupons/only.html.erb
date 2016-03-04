@@ -1,54 +1,57 @@
-<div class="jumbotron">
+<div class="restaurantonly">
 
 
   <% if current_restaurant %>
-    <p class='nav_item'>
+    <p class='logout'>
       <%= link_to 'Log Out', logout_path, class: 'btn btn-info' %>
     </p>
   <% else %>
-    <p class='nav_item'>
+    <p class='login'>
       <%= link_to 'Login', new_sessions_path, class: 'btn btn-info' %>
     </p>
   <% end %>
-</div>
-
-<h1>List of Coupons</h1>
 
 
-
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Price</th>
-
-      <th>End time</th>
+  <h1>List of Coupons</h1>
 
 
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @coupons.each do |coupon| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= image_tag coupon.picture.url %></td>
+        <th></th>
+        <th>Title</th>
+        <th>Price</th>
+
+        <th>End time</th>
 
 
-        <td><%= coupon.price %></td>
-
-        <td><%= coupon.end_time %></td>
-        <td><%= coupon.expiration %></td>
-        <td><%= link_to 'Show', [@restaurant, coupon] %></td>
-
-
-
-
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to 'New Coupon?', new_restaurant_coupon_path %>
+    </thead>
 
-<br>
+    <tbody>
+      <% @coupons.each do |coupon| %>
+        <tr>
+          <td><%= image_tag coupon.picture.url %></td>
+
+
+          <td><%= coupon.price %></td>
+
+          <td><%= coupon.end_time %></td>
+          <td><%= coupon.expiration %></td>
+          <td><%= link_to 'Show', [@restaurant, coupon] %></td>
+
+
+
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to 'New Coupon?', new_restaurant_coupon_path %>
+
+  <br>
+
+
+</div>
