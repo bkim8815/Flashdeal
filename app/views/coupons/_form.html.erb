@@ -11,41 +11,36 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="col-sm-6 col-sm-offset-3">
+  <div class="form-group frm">
+    <%= f.text_field :title, class: "form-control", placeholder:"Title" %>
   </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
+  <div class="form-group frm">
+    <%= f.text_field :price, class: "form-control", placeholder:"Price" %>
   </div>
-  <div class="field">
+  <div class="form-group frm">
     <%= f.label :start_time %><br>
-    <%= f.datetime_select :start_time %>
+    <%= f.time_select :start_time, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group frm">
     <%= f.label :end_time %><br>
-    <%= f.datetime_select :end_time %>
+    <%= f.time_select :end_time, class: "form-control"%>
   </div>
-  <div class="field">
-    <%= f.label :expiration %><br>
-    <%= f.check_box :expiration %>
+
+  <div class="form-group frm">
+    <%= f.number_field :max_count, class: "form-control", placeholder:"Qty Available" %>
   </div>
-  <div class="field">
-    <%= f.label :max_count %><br>
-    <%= f.number_field :max_count %>
+  <div class="form-group frm">
+    <%= f.text_field :promocode, class: "form-control", placeholder:"Promo Code" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :picture %><br>
-    <%= f.file_field :picture, enctype:"multipart/form-data", action:'/photos' %>
+    <%= f.file_field :picture, enctype:"multipart/form-data", action:'/photos', :'data-classButton' => 'btn btn-primary' %>
   </div>
-  <div class="field">
-    <%= f.label :promocode %><br>
-    <%= f.text_field :promocode %>
-  </div>
+  <br>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-primary" %>
+  </div>
   </div>
 <% end %>
