@@ -31,6 +31,7 @@
       <% coupon.save %>
     <% else  %>
       <div class="coupon-on-index">
+        <a href="<%= coupon_path %>">
         <div class="coupon-picture">
           <%=  image_tag coupon.picture.url(:thumb), class:"img-circle" %>
         </div>
@@ -56,6 +57,7 @@
         <%= content_tag(:span, coupon.end_time.min, :class => "min_#{counter}") %>
         <% counter += counter %>
       </div>
+    </a>
   </div>
   <% end %>
 <% end %>

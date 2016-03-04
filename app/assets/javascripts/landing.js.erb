@@ -35,6 +35,14 @@ function ready() {
 });
 }
 
+var time = $('.hour').text() + ":" + $('.min').text() + ":" + "00"
+var timer = (new Date (new Date().toDateString() + ' ' + time ))
+jQuery('.tim').countdown(timer , function(event) {
+$(this).html(event.strftime('%H:%M:%S'));
+
+}).on('finish.countdown', function() {
+$(this).replaceWith('<p>Expired!</p>')
+});
 
 
 }
