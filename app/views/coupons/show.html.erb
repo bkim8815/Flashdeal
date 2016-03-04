@@ -1,13 +1,14 @@
-<div class="restaurant-logo text-center">
-  <%= image_tag @coupon.restaurant.logo %>
-</div>
+<div class="restaurantonly1">
+  <div class="restaurant-logo text-center">
+    <%= image_tag @coupon.restaurant.logo %>
+  </div>
 
-<div class="text-center white">
-<h1><%= @coupon.restaurant.name %></h1>
-</div>
-<div class="coupon-show-pic">
-  <%= image_tag @coupon.picture.url(:medium) %></p>
-</div>
+  <div class="text-center white">
+    <h1><%= @coupon.restaurant.name %></h1>
+  </div>
+  <div class="coupon-show-pic">
+    <%= image_tag @coupon.picture.url(:medium) %>
+  </div>
   <div class="text-center white">
     <h1><%= @coupon.title %></h1>
   </div>
@@ -16,7 +17,6 @@
   <div class="text-center white">Number of Remaining Coupons:
     <%= @coupon.max_count %>
   </div>
-</div>
 
 <div id="count">
   <%= content_tag(:span, @coupon.end_time.hour, :class => "hour") %>
@@ -28,42 +28,43 @@
 <p id="notice"><%= notice %></p>
 <% if current_restaurant %>
 
-<% else %>
+  <% else %>
 
-    <div class="field container claim white">
-      <div class="claim-input">
-        <%= form_for (@phone)  do |f| %>
-            <%= f.label "Enter your phone number" %>
-            <%= f.text_field :mobile, class:"form-control" %>
+  <div class="field container claim white">
+    <div class="claim-input text-center">
+      <%= form_for (@phone)  do |f| %>
+      <%= f.label "Enter your phone number" %>
+      <%= f.text_field :mobile, class:"form-control" %>
+    </div>
+    <div class="claim-bttn">
+      <div class="text-center"><%= f.submit 'Claim this Coupon', class:"btn-lg btn-danger" %>
       </div>
-        <div class="claim-bttn">
-            <div class="text-center"><%= f.submit 'Claim this Coupon', class:"btn-lg btn-danger" %>
-            </div>
-        </div>
     </div>
   <% end %>
-<% end %>
+</div>
+  <% end %>
 
 
-
-<% if current_restaurant %>
-
-    <div class="text-center white"><h4><strong>promocode:</strong>
+  <% if current_restaurant %>
+  <div class="text-center white"><h4><strong>promocode:</strong>
     <%= @coupon.promocode %></h4>
   </div>
-<% else %>
-<%= link_to 'Follow this Restaurant', new_customer_path(:coupon_id => @coupon.id), class:"btn btn-primary"%>
 
-<% end %>
+    <% else %>
+    <div class="text-center white">
+    <%= link_to 'Follow this Restaurant', new_customer_path(:coupon_id => @coupon.id), class:"btn btn-primary"%>
+  </div>
+  <% end %>
+
+  <br>
 
 
 
-
-
-<div class="text-center">
-<% if current_restaurant %>
+  <div class="text-center">
+  <% if current_restaurant %>
   <%= link_to 'Edit', edit_coupon_path, class:"btn btn-primary" %>
-<% else %>
-<% end %>
-<%= link_to 'Back', coupons_path, class:"btn btn-primary" %>
+  <% else %>
+  <% end %>
+  <%= link_to 'Back', coupons_path, class:"btn btn-primary " %>
+</div>
 </div>
