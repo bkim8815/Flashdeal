@@ -19,28 +19,36 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 </script>
 
 <!-- <div class="container"> -->
-  <div class="coupon-on-index row">
 
     <% counter = 1 %>
     <% @coupons.each do |coupon| %>
-        <div>
             <% if coupon.expiration == true || coupon.end_time < Time.now %>
               <% coupon.expiration = true %>
               <% coupon.max_count = 0 %>
               <% coupon.save %>
             <% else  %>
-            <div class="coupon-picture col-xs-4">
-              <%= image_tag coupon.picture.url(:medium), class:"img-circle" %>
+            <div class="coupon-on-index">
+            <div class="coupon-picture">
+              <%=  image_tag coupon.picture.url(:thumb), class:"img-circle" %>
             </div>
-            <div class="coupon-description col-xs-4">
-              <%= link_to coupon.title, coupon %>
-            </div>
-            <div class="col-xs-2">
-              <%= coupon.price %>
-            </div>
-            <div class="col-xs-2">
+            <ul id="coupon">
+            <li>
+            <div class="coupon-title">
+              <h3><%= link_to coupon.title, coupon %>
+            </div></li>
+            <li>
+            <div class="coupon-countdown">
+              Expires in:
               <%= content_tag(:div,'', :class => "tim_#{counter}") %>
+            </h3>
             </div>
+
+          </li>
+        </ul>
+            <div class="coupon-price">
+              $ <%= coupon.price %>
+            </div>
+
 
 
             <div id="count">
@@ -49,10 +57,8 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
               <% counter += counter %>
             </div>
         </div>
-      </div>
         <% end %>
         <% end %>
 
-<!-- </div> -->
 
 </div>

@@ -7,12 +7,52 @@
 }
 
 .coupon-on-index {
-  padding-top: 6%;
-  // padding-right: 25px;
+  height: 150px;
+  padding-top: 2%;
+  margin-top: 1%;
+  padding-bottom: 2%;
+  width: 100%;
+  border: 2px solid black;
+  display: inline-flex;
+  text-align: center;
+  background-color: rgba(255, 255, 255, .4);
+  border-radius: 15px 50px;
+}
+.coupon-picture {
+  float: left;
+  width: 25%;
+  height: 100%;
+  padding-top: 25px;
+  padding-left: 5px;
+
 }
 
+#coupon li {
+list-style-type: none;
+
+}
+  #coupon {
+    float: left;
+    width: 45%;
+    height: 100%;
+    text-align: center;
+    padding-top: auto;
+    padding-bottom: auto;
+
+}
+
+.coupon-price {
+  float: left;
+  height: 100%;
+  text-align: right;
+  width: 30%;
+  padding-top: 40px;
+  padding-right: 15px;
+  font-size: 2em;
+}
 .coupon-title {
-  padding-top: 5%;
+  padding-bottom: 1%;
+  width: 100%;
 }
 
 #map {
