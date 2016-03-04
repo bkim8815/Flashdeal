@@ -4,8 +4,19 @@
 
 
 //below is for the Restaurant view of coupon only page
-.restaurantaonly {
-  background-image: url("blur.jpeg");
+.restaurantonly {
+  background-image: url("restaurant.jpeg");
   background-size: cover;
+  background-repeat: repeat;
+  height: 100vh;
+  width: 100vw;
+  color: white;
+
+}
+
+
+
+#rcouponeach {
+  
 
 }

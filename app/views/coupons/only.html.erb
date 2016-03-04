@@ -2,56 +2,56 @@
 
 
   <% if current_restaurant %>
-    <p class='logout'>
+    <p class='logoutbutton'>
       <%= link_to 'Log Out', logout_path, class: 'btn btn-info' %>
     </p>
   <% else %>
-    <p class='login'>
+    <p class='loginbutton'>
       <%= link_to 'Login', new_sessions_path, class: 'btn btn-info' %>
     </p>
   <% end %>
 
+  <div class="container">
+    <p id="notice"><%= notice %></p>
+    <h2 id="header-coupon">My Promotion list</h2>
 
-  <h1>List of Coupons</h1>
+    <% counter = 1 %>
+    <% @coupons.each do |coupon| %>
 
+            <div class="coupon-on-index">
+            <div class="coupon-picture">
+              <%=  image_tag coupon.picture.url(:thumb), class:"img-circle" %>
+            </div>
+            <ul id="coupon">
+              <li>
+                <div class="coupon-title">
+                  <h3><%= link_to coupon.title, coupon %>
+                </div>
+              </li>
+              <li>
+                <div class="coupon-countdown">
+                  Expires in:
+                  <%= content_tag(:div,'', :class => "tim_#{counter}") %>
+                </h3>
+                </div>
+              </li>
+            </ul>
+            <div class="coupon-price">
+              $<%= coupon.price %>
+              <%= link_to 'Show', [@restaurant, coupon] %>
+            </div>
 
+            <div id="count">
+              <%= content_tag(:span, coupon.end_time.hour, :class => "hour_#{counter}") %>
+              <%= content_tag(:span, coupon.end_time.min, :class => "min_#{counter}") %>
+              <% counter += counter %>
 
-  <table>
-    <thead>
-      <tr>
-        <th></th>
-        <th>Title</th>
-        <th>Price</th>
+            </div>
 
-        <th>End time</th>
+        </div>
 
+        <% end %>
 
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @coupons.each do |coupon| %>
-        <tr>
-          <td><%= image_tag coupon.picture.url %></td>
-
-
-          <td><%= coupon.price %></td>
-
-          <td><%= coupon.end_time %></td>
-          <td><%= coupon.expiration %></td>
-          <td><%= link_to 'Show', [@restaurant, coupon] %></td>
-
-
-
-
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <%= link_to 'New Coupon?', new_restaurant_coupon_path %>
-
-  <br>
-
-
+      </table>
+      <%= link_to 'New Coupon?', new_restaurant_coupon_path %>
 </div>
