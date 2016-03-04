@@ -27,7 +27,7 @@ $hover-color: #cfb4f7;
   margin:2em auto 4em;
   max-width:50em;
   position: relative;
-  top: 35%;
+  top: 30%;
 }
 
 #diamondlink {
@@ -144,4 +144,17 @@ a:hover .button:after {
 #landinglogin a {
 
   color: white;
+}
+
+//running man logo
+#runningman {
+  position: relative;
+  top: 30%;
+  text-align: center;
+
+}
+#runningman1 {
+  width: 15em;
+
+
 }
