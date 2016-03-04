@@ -6,38 +6,156 @@ height: 100vh;
 padding: 0px;
 margin: 0px;
 }
+/////////////////
 
 
 
 
 
-body {
-    background-color: #fff;
-    color: #494949;
+//below is for the  diamond logo button
+
+
+
+
+
+
+$hover-color: #cfb4f7;
+
+
+#diamond {
+  text-align:center;
+  margin:2em auto 4em;
+  max-width:50em;
+  position: relative;
+  top: 30%;
 }
 
-h2 {
-  // margin-top: auto;
+#diamondlink {
+  text-decoration:none;
+  color:white;
+  overflow:hidden;
+  display:block;
+  margin:0.75em;
 }
 
-.login {
+.button {
+  letter-spacing:.5em;
+  text-decoration:center;
+  padding:0.75em 1.25em 0.75em 1.75em;
+  border-color:white;
+  border-width:2px;
+  border-style:solid;
+  white-space: nowrap;
+  -webkit-transition: border-color 500ms ease, color 250ms ease;;
+  -moz-transition: border-color 500ms ease, color 250ms ease;;
+  -ms-transition: border-color 500ms ease, color 250ms ease;;
+  -o-transition: border-color 500ms ease, color 250ms ease;;
+  transition: border-color 500ms ease, color 250ms ease;;
+}
+
+.button:hover {
+  color:$hover-color;
+  border-color:$hover-color;
+}
+
+.button:before,
+.button:after {
+  border-style:solid;
+  border-color:white;
+  border-width:0;
+  -webkit-transition: border-color 500ms ease;;
+  -moz-transition: border-color 500ms ease;;
+  -ms-transition: border-color 500ms ease;;
+  -o-transition: border-color 500ms ease;;
+  transition: border-color 500ms ease;;
+}
+
+a:hover .button:before,
+a:hover .button:after {
+  border-color:$hover-color;
+}
+
+
+
+// Diamond Button
+
+.dimond {
+  border-width:2px 0;
+  position:relative;
+  display:block;
+  padding:0.75em 0 0.75em 0.5em;
+  margin-left:1.6em;
+  margin-right:1.6em;
+}
+
+.dimond:before {
+  content: "";
+  display:inline-block;
+  border-bottom-width:2px;
+  border-left-width:2px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: 0% 100%;
+  -moz-transform-origin: 0% 100%;
+  -ms-transform-origin: 0% 100%;
+  -o-transform-origin: 0% 100%;
+  transform-origin: 0% 100%;
+  position:absolute;
+  top:-50%;
+  bottom:50%;
+  left:-1.55em;
+  right:0;
+}
+
+.dimond:after {
+  content: "";
+  display:inline-block;
+  border-bottom-width:2px;
+  border-right-width:2px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  -o-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+  position:absolute;
+  top:-50%;
+  bottom:50%;
+  left:0;
+  right:-1.55em;
+}
+
+
+
+//below is the business login button on landing page
+
+#landinglogin {
+  text-align:center;
+  top: 70%;
+  position: relative;
+}
+#landinglogin a {
+
+  color: white;
+}
+
+//running man logo
+#runningman {
+  position: relative;
+  top: 30%;
   text-align: center;
-  padding-top: 120px;
+
 }
 
+#runningman1 {
+  width: 15em;
 
-.logolink {
-  text-align: center;
-  width  : 100%;
-  height : auto;
-  border-radius:  50%;
-  padding-top: 90px;
-}
-
-img {
-
-  vertical-align: middle;
-  height: 85%;
-  width: 85%;
 
 }
