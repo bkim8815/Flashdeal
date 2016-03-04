@@ -18,41 +18,40 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 });
 </script>
 
-<!-- <div class="container"> -->
-  <div class="coupon-on-index row">
 
-    <% counter = 1 %>
-    <% @coupons.each do |coupon| %>
-        <div>
-            <% if coupon.expiration == true || coupon.end_time < Time.now %>
-              <% coupon.expiration = true %>
-              <% coupon.max_count = 0 %>
-              <% coupon.save %>
-            <% else  %>
-            <div class="coupon-picture col-xs-4">
-              <%= image_tag coupon.picture.url(:medium) %>
-            </div>
-            <div class="coupon-description col-xs-4">
-              <%= link_to coupon.title, coupon %>
-            </div>
-            <div class="col-xs-2">
-              <%= coupon.price %>
-            </div>
-            <div class="col-xs-2">
-              <%= content_tag(:div,'', :class => "tim_#{counter}") %>
-            </div>
+      <div class="coupon-on-index row">
+
+        <% counter = 1 %>
+        <% @coupons.each do |coupon| %>
+
+                <% if coupon.expiration == true || coupon.end_time < Time.now %>
+                  <% coupon.expiration = true %>
+                  <% coupon.max_count = 0 %>
+                  <% coupon.save %>
+                <% else  %>
+                <div class="coupon-picture col-xs-4">
+                  <%= image_tag coupon.picture.url(:medium) %>
+                </div>
+                <div class="coupon-description col-xs-4">
+                  <%= link_to coupon.title, coupon %>
+                </div>
+                <div class="col-xs-2">
+                  $<%= coupon.price %>
+                </div>
+                <div class="col-xs-2">
+                  <%= content_tag(:div,'', :class => "tim_#{counter}") %>
+                </div>
 
 
-            <div id="count">
-              <%= content_tag(:span, coupon.end_time.hour, :class => "hour_#{counter}") %>
-              <%= content_tag(:span, coupon.end_time.min, :class => "min_#{counter}") %>
-              <% counter += counter %>
-            </div>
-        </div>
+                <div id="count">
+                  <%= content_tag(:span, coupon.end_time.hour, :class => "hour_#{counter}") %>
+                  <%= content_tag(:span, coupon.end_time.min, :class => "min_#{counter}") %>
+                  <% counter += counter %>
+                </div>
+
       </div>
         <% end %>
         <% end %>
 
-<!-- </div> -->
 
 </div>
