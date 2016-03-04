@@ -1,4 +1,4 @@
-<div class="restaurantonly">
+
 
 
   <% if current_restaurant %>
@@ -11,6 +11,9 @@
     </p>
   <% end %>
 
+
+<div class="restaurantonly">
+
   <div class="container">
     <p id="notice"><%= notice %></p>
     <h2 id="header-coupon">My Promotion list</h2>
@@ -18,28 +21,28 @@
     <% counter = 1 %>
     <% @coupons.each do |coupon| %>
 
-
+    <a href="<%= coupon_path(coupon) %>">
             <div class="coupon-on-index">
             <div class="coupon-picture">
-              <%=  image_tag coupon.picture.url(:thumb), class:"img-circle" %>
+              <%= image_tag coupon.picture.url(:thumb), class:"img-circle" %>
             </div>
             <ul id="coupon">
               <li>
                 <div class="coupon-title">
-                  <h3><%= link_to coupon.title, coupon %>
+                  <h3><%= coupon.title %>
                 </div>
               </li>
               <li>
                 <div class="coupon-countdown">
                   Expires in:
                   <%= content_tag(:div,'', :class => "tim_#{counter}") %>
-                </h3>
+                     </h3>
+
                 </div>
               </li>
             </ul>
             <div class="coupon-price">
               $<%= coupon.price %>
-              <%= link_to 'Show', [@restaurant, coupon] %>
             </div>
 
             <div id="count">
@@ -50,7 +53,7 @@
             </div>
 
         </div>
-
+</a>
         <% end %>
 
       </table>
