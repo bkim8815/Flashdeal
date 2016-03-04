@@ -1,6 +1,11 @@
 class SessionsController < ApplicationController
   def new
 
+    if current_restaurant
+      redirect_to only_path(@current_restaurant)
+    else
+    end
+
   end
 
   def create
