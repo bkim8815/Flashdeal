@@ -1,6 +1,12 @@
 
 
 
+
+
+
+<div class="restaurantonly">
+
+
   <% if current_restaurant %>
     <p class='logoutbutton'>
       <%= link_to 'Log Out', logout_path, class: 'btn btn-info' %>
@@ -12,7 +18,7 @@
   <% end %>
 
 
-<div class="restaurantonly">
+  
 
   <div class="container">
     <p id="notice"><%= notice %></p>
