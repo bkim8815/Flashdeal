@@ -1,5 +1,5 @@
 <div id="gradient" />
-<%= link_to 'Back', coupons_path, class:"btn btn-primary" %>
+
     <div class="container">
 
     <center>
@@ -7,6 +7,13 @@
         <h3>Follow for up to date Flash Deals</h3>
     </center>
       </div>
-      <%= render 'form' %>
+      <div class="coupon-follow-field">  
+        <%= render 'form' %>
+        <div class="follow-back-button">
+          <center>
+          <%= link_to 'Back', coupons_path, class:"btn btn-primary" %>
+          </center>
+        </div>
+      </div>
     </div>
 </div>
