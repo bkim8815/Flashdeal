@@ -112,7 +112,9 @@ class CouponsController < ApplicationController
 
 
   def only
-    @coupons = Coupon.where(restaurant_id: params[:restaurant_id])
+    @coupons = (Coupon.where(restaurant_id: params[:restaurant_id], expiration: false))
+
+
 
   end
 

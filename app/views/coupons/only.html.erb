@@ -4,7 +4,7 @@
 
 
 
-<div class="restaurantonly">
+<div class="restaurantonly1">
 
 
   <% if current_restaurant %>
@@ -26,8 +26,15 @@
     <h2 id="header-coupon">My Promotion list</h2>
     <%= link_to 'New Coupon?', new_restaurant_coupon_path, :class => "btn btn-primary btn-lg" %>
 
+
+
+    <%if @coupons.empty? %>
+
+    <%else%>
     <% counter = 1 %>
+
     <% @coupons.each do |coupon| %>
+
 
     <a href="<%= coupon_path(coupon) %>">
             <div class="coupon-on-index">
@@ -64,7 +71,7 @@
 </a>
 
         <% end %>
-
+        <% end %>
       </table>
 
 </div>
