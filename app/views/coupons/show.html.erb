@@ -45,8 +45,11 @@
   <% end %>
 
 
-  <% if current_restaurant %>
-  <div class="text-center white"><h4><strong>promocode:</strong>
+<% if current_restaurant %>
+<div><%= link_to 'Destroy', coupon_path, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+
+    <div class="text-center white"><h4><strong>promocode:</strong>
+
     <%= @coupon.promocode %></h4>
   </div>
 
