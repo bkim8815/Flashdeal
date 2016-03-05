@@ -56,6 +56,7 @@ text-align: center;
   text-align: center;
   background-color: rgba(255, 255, 255, .4);
   border-radius: 15px 50px;
+  color:white;
 }
 .coupon-picture {
   float: left;
@@ -96,7 +97,8 @@ list-style-type: none;
 
 #map {
   width: 100%;
-  height: 260px;
+
+  height: 180px;
   text-align: center;
 }
 
@@ -118,21 +120,9 @@ div#count  {
   display: none;
 }
 
-// #itemPics {
-//   width: 70%;
-//   height: 35%;
-//   padding-bottom: 25px;
-// }
+//coupon index backgroudn
 
-// td, th {
-//   text-align: center;
-// }
-//
-// ul, li {
-//   list-style-type: none;
-//
-// }
-//
-// th {
-//   color: #EBB46D;
-// }
+.couponindexbackground {
+  background: linear-gradient(to left, #F1F2B5 , #135058);
+  height: 120%;
+}

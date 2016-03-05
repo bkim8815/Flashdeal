@@ -1,11 +1,20 @@
-<div class="col-sm-6 col-sm-offset-3">
-<h1>New Coupon</h1>
-</div>
-<%= render 'form' %>
+<nav class="navbar navbar-inverse">
 
-<div class="col-sm-6 col-sm-offset-3">
-  <br>
-  <button class="btn btn-primary">
-<%= link_to 'Back', coupons_path %>
-</div>
+  <a href="<%= root_path %>"><%= image_tag ("flashdealguy1.png"), class: "imgheader" %></a>
+  <% if current_restaurant %>
+    <%= link_to 'Log Out', logout_path, class: 'btn btn-small nav-item' %>
+  <% else %>
+  <% end %>
+</nav>
+<div class="restaurantonly2">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h1>New Coupon</h1>
+  </div>
+  <%= render 'form' %>
+
+    <div class="col-sm-6 col-sm-offset-3 text-center"></br>
+      <button class="btn btn-primary">
+      <%= link_to 'Back', coupons_path, :class => "acoupon"%>
+    </div>
+  </div>
 </div>

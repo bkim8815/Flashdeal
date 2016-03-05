@@ -17,5 +17,24 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  
+
+}
+
+.acoupon {
+  color: white;
+
+}
+
+nav {
+  height: 60px;
+  margin-bottom: 0 !important;
+}
+.imgheader {
+  height: 45px;
+  padding-left: 32.5%;
+  padding-top: 7.5px;
+}
+
+.nav-item {
+  float:right;
 }
