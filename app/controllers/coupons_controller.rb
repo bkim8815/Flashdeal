@@ -103,7 +103,7 @@ class CouponsController < ApplicationController
   def destroy
     @coupon.destroy
     respond_to do |format|
-      format.html { redirect_to coupons_url, notice: 'Coupon was successfully destroyed.' }
+      format.html { redirect_to only_path(@current_restaurant), notice: 'Coupon was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -113,6 +113,7 @@ class CouponsController < ApplicationController
 
   def only
     @coupons = (Coupon.where(restaurant_id: params[:restaurant_id], expiration: false))
+    
 
 
 

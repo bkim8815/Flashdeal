@@ -21,22 +21,20 @@
 
 
 
-  <div class="container">
+  <div class="container1">
     <p id="notice"><%= notice %></p>
     <h2 id="header-coupon">My Promotion list</h2>
     <%= link_to 'New Coupon?', new_restaurant_coupon_path, :class => "btn btn-primary btn-lg" %>
 
 
 
-    <%if @coupons.empty? %>
 
-    <%else%>
     <% counter = 1 %>
 
     <% @coupons.each do |coupon| %>
 
 
-    <a href="<%= coupon_path(coupon) %>">
+    <a href="<%= coupon_path(coupon) %>" class="coupononly">
             <div class="coupon-on-index">
             <div class="coupon-picture">
               <%= image_tag coupon.picture.url(:thumb), class:"img-circle" %>
@@ -71,7 +69,7 @@
 </a>
 
         <% end %>
-        <% end %>
+
       </table>
 
 </div>

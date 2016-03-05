@@ -1,22 +1,24 @@
 <div class="restaurantonly1">
   <div class="restaurant-logo text-center">
-    <%= image_tag @coupon.restaurant.logo %>
+    <%= image_tag @coupon.restaurant.logo(:thumb) %>
   </div>
 
   <div class="text-center white">
     <h1><%= @coupon.restaurant.name %></h1>
   </div>
   <div class="coupon-show-pic">
-    <%= image_tag @coupon.picture.url(:medium) %>
+    <%= image_tag @coupon.picture.url(:square) %>
   </div>
   <div class="text-center white">
     <h1><%= @coupon.title %></h1>
   </div>
   <div class="text-center white"><h2><%= number_to_currency @coupon.price %></h2></div>
   <div class="text-center white"><h4>Expires in:<%= content_tag(:div,'', :class => "tim") %></h4></div>
-  <div class="text-center white">Number of Remaining Coupons:
-    <%= @coupon.max_count %>
-  </div>
+  <% if current_restaurant%>
+    <div class="text-center white">Number of Remaining Coupons:
+      <%= @coupon.max_count %>
+    </div>
+  <% end %>
 
 <div id="count">
   <%= content_tag(:span, @coupon.end_time.hour, :class => "hour") %>
@@ -46,7 +48,7 @@
 
 
 <% if current_restaurant %>
-<div><%= link_to 'Destroy', coupon_path, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+
 
     <div class="text-center white"><h4><strong>promocode:</strong>
 
@@ -64,10 +66,14 @@
 
 
   <div class="text-center">
-  <% if current_restaurant %>
-  <%= link_to 'Edit', edit_coupon_path, class:"btn btn-primary" %>
-  <% else %>
-  <% end %>
-  <%= link_to 'Back', coupons_path, class:"btn btn-primary " %>
-</div>
+    <% if current_restaurant %>
+    <%= link_to 'Edit', edit_coupon_path, class:"btn btn-primary" %>
+    <%= link_to 'Destroy', coupon_path, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-primary" %>
+
+
+    <% else %>
+        <%= link_to 'Back', coupons_path, class:"btn btn-primary " %>
+    <% end %>
+
+  </div>
 </div>
