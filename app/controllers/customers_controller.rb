@@ -79,18 +79,18 @@ class CustomersController < ApplicationController
         if (("+1"+(subs.customer.phone_number.to_s)) == sender) && (body.downcase == "unfollow")
           r.Message "You are unsubscribed."
           subs.destroy
-          break
+
         elsif ("+1"+(subs.customer.phone_number.to_s)) == sender)
           r.Message "I don't know that command."
-          break
+
         else
-          break
+
 
         end
       end
+      render xml: twiml.text
 
     end
-    render xml: twiml.text
   end
 
 
