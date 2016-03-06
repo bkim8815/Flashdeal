@@ -73,7 +73,6 @@ class CustomersController < ApplicationController
 
     sender = params[:From]
     body = params[:Body]
-    @customers = Customer.all
     @subscription = Subscription.all
 
 
@@ -81,9 +80,7 @@ class CustomersController < ApplicationController
       r.Message "You are unsubscribed."
     end
 
-    twiml2 = Twilio::TwiML::Response.new do |r|
-      r.Message 'text'
-    end
+
 
 
 
