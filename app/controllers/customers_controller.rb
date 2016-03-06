@@ -69,42 +69,42 @@ class CustomersController < ApplicationController
   end
 
 
-  def incoming
-
-    sender = params[:From]
-    body = params[:Body]
-    @subscription = Subscription.all
-
-
-    twiml = Twilio::TwiML::Response.new do |r|
-
-
-
-
-
-
-
-
-
-    @subscription.map do |subs|
-      if (("+1"+(subs.customer.phone_number.to_s)) == sender) && (body.downcase == "unfollow")
-        r.Message "You are unsubscribed."
-
-        subs.destroy
-      elsif ("+1"+(subs.customer.phone_number.to_s)) == sender)
-        r.Message "I don't know that command."
-      else
-
-      end
-
-
-
-    end
-
-render xml: twiml.text
-  end
-
-end
+#   def incoming
+#
+#     sender = params[:From]
+#     body = params[:Body]
+#     @subscription = Subscription.all
+#
+#
+#     twiml = Twilio::TwiML::Response.new do |r|
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#     @subscription.map do |subs|
+#       if (("+1"+(subs.customer.phone_number.to_s)) == sender) && (body.downcase == "unfollow")
+#         r.Message "You are unsubscribed."
+#
+#         subs.destroy
+#       elsif ("+1"+(subs.customer.phone_number.to_s)) == sender)
+#         r.Message "I don't know that command."
+#       else
+#
+#       end
+#
+#
+#
+#     end
+#
+# render xml: twiml.text
+#   end
+#
+# end
 
 
 
