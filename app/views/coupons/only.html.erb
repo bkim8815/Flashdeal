@@ -1,11 +1,11 @@
 <div class="restaurantonly1">
 
 <nav class="navbar navbar-inverse">
-  <span><%= link_to 'Edit Profile', edit_restaurant_path(@current_restaurant), class: 'btn btn-small nav-item' %></span>
+  <div><%= link_to 'Edit Profile', edit_restaurant_path(@current_restaurant), class: 'btn btn-small' %></div>
 
-  <a href="<%= root_path %>"><%= image_tag ("flashdealguy1.png"), class: "imgheader" %></a>
+  <div class="imgheader3"><a href="<%= root_path %>"><%= image_tag ("flashdealguy1.png"), class: "imgheader3" %></a></div>
   <% if current_restaurant %>
-    <span><%= link_to 'Log Out', logout_path, class: 'btn btn-small nav-item-left' %></span>
+    <div><%= link_to 'Log Out', logout_path, class: 'btn btn-small' %></div>
   <% else %>
   <% end %>
 </nav>

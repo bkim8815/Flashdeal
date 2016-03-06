@@ -1,3 +1,4 @@
+<div class="bakery">
 <nav class="navbar navbar-inverse">
 
   <a href="<%= root_path %>"><%= image_tag ("flashdealguy1.png"), class: "imgheader" %></a>
@@ -5,7 +6,10 @@
     <%= link_to 'Log Out', logout_path, class: 'btn btn-small nav-item' %>
   <% else %>
   <% end %>
-</nav><div class="bakery">
+</nav>
+
+
+  <h1>Restaurant Sign Up</h1>
   <%= render 'form' %>
 
 </div>
