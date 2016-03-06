@@ -38,3 +38,11 @@ nav {
 .nav-item {
   float:right;
 }
+.nav-item-left {
+  float: left;
+}
+.imgheader1 {
+  height: 45px;
+text-align: center;
+ padding-top: 7.5px;
+}
