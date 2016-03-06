@@ -80,6 +80,8 @@ class CustomersController < ApplicationController
       r.Message "You are unsubscribed."
     end
 
+    render xml: twiml.text
+
 
 
 
@@ -89,7 +91,7 @@ class CustomersController < ApplicationController
     @subscription.each do |subs|
       if ("+1"+(subs.customer.phone_number.to_s)) == sender
         subs.destroy
-        twiml.text
+
       end
 
 
