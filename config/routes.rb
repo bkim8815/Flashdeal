@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get '/restaurants/:restaurant_id/only' => 'coupons#only', :as => :only
 
 
-  get '/incoming' => 'customers#incoming'
+  get '/incoming', to: 'customers#incoming'
 
   resources :restaurants do
     resources :coupons
