@@ -74,7 +74,8 @@ class CustomersController < ApplicationController
     twiml = Twilio::TwiML::Response.new do |r|
       r.Message "Thank you mofo!!!!!!!"
     end
-    render xml: twiml.text
+    twiml.text
+
 
   end
 
