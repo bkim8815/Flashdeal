@@ -42,7 +42,7 @@ class CustomersController < ApplicationController
        @client.account.messages.create({
         :from => '+19548585330',
         :to => '+1'+@customer.phone_number,
-        :body => "Thank you for subscribing to #{r.name}!! to unfollow text stop #{r.name}",
+        :body => "Thank you for subscribing to #{r.name}!! to unfollow text unfollow #{r.name}",
        })
         format.html { redirect_to root_path , notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
@@ -81,14 +81,14 @@ class CustomersController < ApplicationController
     end
 
     twiml2 = Twilio::TwiML::Response.new do |r|
-      r.Message 'text "unfollow" to unfollow.'
+      r.Message 'text "unfollow + name of the restaurant" to unfollow.'
     end
 
     @subscription.each do |subs|
-      if (("+1"+(subs.customer.phone_number.to_s)) == sender) && ("stop "+subs.restaurant.name == body.downcase)
+      if (("+1"+(subs.customer.phone_number.to_s)) == sender) && ("unfollow "+subs.restaurant.name == body.downcase)
         subs.destroy
         render xml: twiml.text
-          
+
       else
         render xml: twiml2.text
       end
