@@ -88,9 +88,10 @@ class CustomersController < ApplicationController
 
         end
       end
-      render xml: twiml.text
 
     end
+    render xml: twiml.text
+
   end
 
 
