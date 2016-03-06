@@ -77,11 +77,8 @@ class CustomersController < ApplicationController
 
 
     twiml = Twilio::TwiML::Response.new do |r|
-      r.Message "You are unsubscribed."
-    end
-    twiml2 = Twilio::TwiML::Response.new do |r|
-      r.Message "I don't know that command."
-    end
+
+
 
 
 
@@ -91,10 +88,11 @@ class CustomersController < ApplicationController
 
     @subscription.map do |subs|
       if (("+1"+(subs.customer.phone_number.to_s)) == sender) && (body.downcase == "unfollow")
-        render xml: twiml.text
+        r.Message "You are unsubscribed."
+
         subs.destroy
       elsif ("+1"+(subs.customer.phone_number.to_s)) == sender)
-        render xml: twiml2.text
+        r.Message "I don't know that command."
       else
 
       end
@@ -103,9 +101,10 @@ class CustomersController < ApplicationController
 
     end
 
-
+render xml: twiml.text
   end
 
+end
 
 
 
