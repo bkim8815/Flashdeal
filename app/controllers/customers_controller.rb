@@ -25,9 +25,9 @@ class CustomersController < ApplicationController
   # POST /customers
   # POST /customers.json
   def create
-    coupon_id = params[:coupon_id]
+    coupon_id = params[:customer][:coupon_id]
 
-    c = Coupon.find_by(coupon_id)
+    c = Coupon.find(coupon_id)
 
     r = Restaurant.find(c.restaurant_id)
     @customer = Customer.new(customer_params)
@@ -36,6 +36,7 @@ class CustomersController < ApplicationController
       if @customer.save
 
         Subscription.create(customer_id: @customer.id, restaurant_id: r.id, status: true)
+
         # set up a client to talk to the Twilio REST API
        @client = Twilio::REST::Client.new ENV['account_sid'], ENV['auth_token']
 

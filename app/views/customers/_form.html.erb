@@ -20,7 +20,7 @@
 </center>
   <div class="field">
 
-    <%= f.hidden_field :coupon_id, :value => @coupon_id %>
+    <%= f.hidden_field :coupon_id, :value => params[:coupon_id] %>
   </div>
   <div class="field">
     <%= f.hidden_field :latitude %>
@@ -28,7 +28,7 @@
   <div class="field">
     <%= f.hidden_field :longitude %>
   </div>
-  <%= f.hidden_field :coupon_id, :value => @coupon_id %>
+
   <div class="actions text-center">
     <div class="follow-btn">
     <%= f.submit 'Follow Establishment', class:"btn-lg btn-danger" %>

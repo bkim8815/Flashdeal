@@ -31,8 +31,9 @@ class PhonesController < ApplicationController
   # POST /phones.json
   def create
 
-    coupon_id = params[:coupon_id]
-    c = Coupon.find_by(coupon_id)
+
+    coupon_id = params[:phone][:coupon_id]
+    c = Coupon.find(coupon_id)
 
 
 
@@ -84,7 +85,7 @@ class PhonesController < ApplicationController
       end
     end
   end
-  
+
 
   # DELETE /phones/1
   # DELETE /phones/1.json

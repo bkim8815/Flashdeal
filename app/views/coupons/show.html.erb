@@ -46,6 +46,7 @@
       <%= form_for (@phone)  do |f| %>
       <%= f.label "Enter your phone number" %>
       <%= f.text_field :mobile, class:"form-control" %>
+      <%= f.hidden_field :coupon_id, value: params[:id] %>
     </div>
     <div class="claim-bttn">
       <div class="text-center"><%= f.submit 'Claim this Coupon', class:"btn-lg btn-danger" %>
