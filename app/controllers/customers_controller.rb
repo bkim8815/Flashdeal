@@ -78,6 +78,19 @@ class CustomersController < ApplicationController
     @subscription.each do |subs|
       if (("+1"+(subs.customer.phone_number.to_s)) == sender) && (body.downcase == "unfollow")
         subs.destroy
+
+        twiml = Twilio::TwiML::Response.new do |r|
+          r.Message "You are unsubscribed."
+        end
+        render xml: twiml.text
+
+
+      else
+        twiml = Twilio::TwiML::Response.new do |r|
+          r.Message 'text "unfollow" to unfollow.'
+        end
+        render xml: twiml.text
+
       end
     end
 
@@ -87,10 +100,7 @@ class CustomersController < ApplicationController
 
 
 
-    twiml = Twilio::TwiML::Response.new do |r|
-      r.Message "You are unsubscribed."
-    end
-    render xml: twiml.text
+
 
 
 
