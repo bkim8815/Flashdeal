@@ -72,7 +72,7 @@ class CustomersController < ApplicationController
   def incoming
 
     sender = params[:From]
-    body=params[:Body]
+    body = params[:Body]
     @customers = Customer.all
     @subscription = Subscription.all
 
@@ -82,28 +82,27 @@ class CustomersController < ApplicationController
     end
 
     twiml2 = Twilio::TwiML::Response.new do |r|
-      r.Message 'text "unfollow + name of the restaurant" to unfollow or "follow" to see the list of businesses that you follow .'
+      r.Message 'text'
     end
 
 
 
-    list=[]
-    twiml3 = Twilio::TwiML::Response.new do |r|
-      r.Message "#{list}"
-    end
+
 
     @subscription.each do |subs|
-      if (("+1"+(subs.customer.phone_number.to_s)) == sender) && ("unfollow "+subs.restaurant.name.downcase == body.downcase)
+      if ("+1"+(subs.customer.phone_number.to_s)) == sender
         subs.destroy
-        render xml: twiml.text
-      elsif (("+1"+(subs.customer.phone_number.to_s)) == sender) && ("follow"== body.downcase)
-        list << subs.restaurant.name
-        render xml: twiml3.text
-      else
-        render xml: twiml2.text
+        twiml.text
       end
+
+
+
     end
+
+
   end
+
+
 
 
   # DELETE /customers/1
