@@ -8,11 +8,12 @@
 </nav>
 <div class="restaurantonly1">
   <div class="restaurant-logo text-center">
-    <%= image_tag @coupon.restaurant.logo(:thumb) %>
+    <%= image_tag @coupon.restaurant.logo(:thumb), class: "restaurantlogopicture" %>
   </div>
 
   <div class="text-center white">
     <h1><%= @coupon.restaurant.name %></h1>
+    <p><%= @coupon.restaurant.address %></p>
   </div>
   <div class="coupon-show-pic">
     <%= image_tag @coupon.picture.url(:square) %>

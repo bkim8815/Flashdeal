@@ -96,9 +96,9 @@ list-style-type: none;
 }
 
 #map {
-  width: 100%;
 
-  height: 180px;
+
+  height: 150px;
   text-align: center;
 }
 
@@ -125,4 +125,11 @@ div#count  {
 .couponindexbackground {
   background: linear-gradient(to left, #F1F2B5 , #135058);
   height: 120%;
+}
+
+
+
+.restaurantlogopicture {
+  height: 80px;
+  width: 10em;
 }
