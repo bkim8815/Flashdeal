@@ -89,13 +89,13 @@ class CustomersController < ApplicationController
 
 
 
-    @subscription.each do |subs|
+    @subscription.map do |subs|
       if (("+1"+(subs.customer.phone_number.to_s)) == sender) && (body.downcase == "unfollow")
         render xml: twiml.text
         subs.destroy
-
-      else
+      elsif ("+1"+(subs.customer.phone_number.to_s)) == sender)
         render xml: twiml2.text
+      else
 
       end
 
