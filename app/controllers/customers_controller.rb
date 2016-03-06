@@ -30,6 +30,8 @@ class CustomersController < ApplicationController
     c = Coupon.find(coupon_id)
 
     r = Restaurant.find(c.restaurant_id)
+
+
     @customer = Customer.new(customer_params)
 
     respond_to do |format|
@@ -52,6 +54,7 @@ class CustomersController < ApplicationController
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /customers/1
