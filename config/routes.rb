@@ -22,6 +22,9 @@ Rails.application.routes.draw do
 
   get '/restaurants/:restaurant_id/only' => 'coupons#only', :as => :only
 
+
+  get '/incoming' => 'customers#incoming'
+
   resources :restaurants do
     resources :coupons
 

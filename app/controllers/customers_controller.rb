@@ -67,6 +67,18 @@ class CustomersController < ApplicationController
     end
   end
 
+
+  def incoming
+
+
+    twiml = Twilio::TwiML::Response.new do |r|
+      r.Message "Thank you mofo!!!!!!!"
+    end
+    twiml.text
+
+  end
+
+
   # DELETE /customers/1
   # DELETE /customers/1.json
   def destroy
