@@ -70,27 +70,30 @@ class CustomersController < ApplicationController
 
 
   def incoming
+
     sender = params[:From]
     body = params[:Body]
     @subscription = Subscription.all
+    @subscription.each do |subs|
+    @current_user = []
+
+      if (("+1"+(subs.customer.phone_number.to_s)) == sender)
+        @current_user << subs
+      end
+    end
 
     twiml = Twilio::TwiML::Response.new do |r|
-      @subscription.each do |subs|
-        if (("+1"+(subs.customer.phone_number.to_s)) == sender) && (body.downcase == "unfollow")
+       if body.downcase == "unfollow"
           r.Message "You are unsubscribed."
-          subs.destroy
-          break
-        elsif ("+1"+(subs.customer.phone_number.to_s)) == sender)
-          r.Message "I don't know that command."
-          break
-        else
-          break
+          @current_user.destroy
 
+        else
+          r.Message "I don't know that command."    
         end
+        render xml: twiml.text
       end
 
-    end
-    render xml: twiml.text
+
   end
 
 
