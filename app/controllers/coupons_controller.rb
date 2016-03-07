@@ -29,7 +29,7 @@ class CouponsController < ApplicationController
       else
         marker.lat coupon.restaurant.latitude
         marker.lng coupon.restaurant.longitude
-        marker.infowindow coupon.price
+        marker.infowindow coupon.restaurant.name
       end
 
     end
