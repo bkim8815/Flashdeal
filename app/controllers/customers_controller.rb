@@ -28,34 +28,38 @@ class CustomersController < ApplicationController
     coupon_id = params[:customer][:coupon_id]
 
     c = Coupon.find(coupon_id)
+    @r = Restaurant.find(c.restaurant_id)
 
-    r = Restaurant.find(c.restaurant_id)
-
-
-    @customer = Customer.new(customer_params)
+      @customer_phone = params[:customer][:phone_number]
+     if Customer.find_by_phone_number(@customer_phone).nil?
+       @customer = Customer.new(customer_params)
 
     respond_to do |format|
       if @customer.save
 
-        Subscription.create(customer_id: @customer.id, restaurant_id: r.id, status: true)
+        Subscription.create(customer_id: @customer.id, restaurant_id: @r.id, status: true)
 
-        # set up a client to talk to the Twilio REST API
-       @client = Twilio::REST::Client.new ENV['account_sid'], ENV['auth_token']
+        send_sms(@customer.phone_number)
 
-       @client.account.messages.create({
-        :from => '+19548585330',
-        :to => '+1'+@customer.phone_number,
-        :body => "Thank you for subscribing to #{r.name}!! to unfollow text unfollow #{r.name}",
-       })
-        format.html { redirect_to root_path , notice: 'Customer was successfully created.' }
+        format.html { redirect_to root_path , notice: 'Subscription was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
       else
         format.html { render :new }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
+  else
+    @current_customer = Customer.find_by_phone_number(@customer_phone)
 
+    Subscription.create(customer_id: @current_customer.id, restaurant_id: @r.id, status: true)
+
+    send_sms(@current_customer.phone_number)
+    respond_to do |format|
+    format.html { redirect_to root_path , notice: 'Subscription was successfully created.' }
   end
+  end
+end
+
 
   # PATCH/PUT /customers/1
   # PATCH/PUT /customers/1.json
@@ -72,30 +76,30 @@ class CustomersController < ApplicationController
   end
 
 
-  # def incoming
-  #   sender = params[:From]
-  #   body = params[:Body]
-  #   @subscription = Subscription.all
-  #
-  #   twiml = Twilio::TwiML::Response.new do |r|
-  #     @subscription.each do |subs|
-  #       if (("+1"+(subs.customer.phone_number.to_s)) == sender) && (body.downcase == "unfollow")
-  #         r.Message "You are unsubscribed."
-  #         subs.destroy
-  #
-  #       elsif ("+1"+(subs.customer.phone_number.to_s)) == sender)
-  #         r.Message "I don't know that command."
-  #
-  #       else
-  #
-  #
-  #       end
-  #     end
-  #
-  #   end
-  #   render xml: twiml.text
-  #
-  # end
+  def incoming
+    sender = params[:From]
+    body = params[:Body]
+    @subscription = Subscription.all
+
+    twiml = Twilio::TwiML::Response.new do |r|
+      @subscription.each do |subs|
+        if (("+1"+(subs.customer.phone_number.to_s)) == sender) && (body.downcase == "unfollow")
+          r.Message "You are unsubscribed."
+          subs.destroy
+
+        elsif ("+1"+(subs.customer.phone_number.to_s)) == sender
+          r.Message "I don't know that command."
+
+        else
+
+
+        end
+      end
+
+    end
+    render xml: twiml.text
+
+  end
 
 
 
@@ -115,6 +119,16 @@ class CustomersController < ApplicationController
       @customer = Customer.find(params[:id])
     end
 
+    def send_sms(phone)
+      # set up a client to talk to the Twilio REST API
+     @client = Twilio::REST::Client.new ENV['account_sid'], ENV['auth_token']
+
+     @client.account.messages.create({
+      :from => '+19548585330',
+      :to => '+1'+phone,
+      :body => "Thank you for subscribing to #{@r.name}!! to unfollow text unfollow #{@r.name}",
+     })
+    end
 
 
 
