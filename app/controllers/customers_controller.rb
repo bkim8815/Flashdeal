@@ -88,7 +88,7 @@ end
           subs.destroy
 
         elsif ("+1"+(subs.customer.phone_number.to_s)) == sender
-          r.Message "I don't know that command."
+          r.Message "I don't know that command. Please type unfollow+businessname"
 
         else
 
