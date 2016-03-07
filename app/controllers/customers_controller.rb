@@ -83,7 +83,7 @@ class CustomersController < ApplicationController
           r.Message "You are unsubscribed."
           subs.destroy
 
-        elsif ("+1"+(subs.customer.phone_number.to_s)) == sender)
+        elsif ("+1"+(subs.customer.phone_number.to_s)) == sender
           r.Message "I don't know that command."
 
         else
