@@ -41,7 +41,7 @@ class CustomersController < ApplicationController
 
         send_sms(@customer.phone_number)
 
-        format.html { redirect_to root_path , notice: 'Subscription was successfully created.' }
+        format.html { redirect_to coupons_path, notice: 'Subscription was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
       else
         format.html { render :new }
@@ -55,7 +55,7 @@ class CustomersController < ApplicationController
 
     send_sms(@current_customer.phone_number)
     respond_to do |format|
-    format.html { redirect_to root_path , notice: 'Subscription was successfully created.' }
+    format.html { redirect_to coupons_path , notice: 'Subscription was successfully created.' }
   end
   end
 end
@@ -83,8 +83,8 @@ end
 
     twiml = Twilio::TwiML::Response.new do |r|
       @subscription.each do |subs|
-        if (("+1"+(subs.customer.phone_number.to_s)) == sender) && (body.downcase == "unfollow")
-          r.Message "You are unsubscribed from ."
+        if (("+1"+(subs.customer.phone_number.to_s)) == sender) && (body.downcase == "unfollow #{subs.restaurant.name}")
+          r.Message "You are unsubscribed from #{subs.restaurant.name}."
           subs.destroy
 
         elsif ("+1"+(subs.customer.phone_number.to_s)) == sender
