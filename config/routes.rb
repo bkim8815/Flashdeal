@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   end
 
-
+  get '/reset' => 'coupons#reset', :as => :reset
   root 'landing#index'
 
   post '/location' => 'coupons#index'

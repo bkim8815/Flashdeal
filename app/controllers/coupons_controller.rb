@@ -114,9 +114,18 @@ class CouponsController < ApplicationController
   def only
     @coupons = (Coupon.where(restaurant_id: params[:restaurant_id], expiration: false))
 
+  end
 
+  def reset
+    @coupons = Coupon.all
+    @coupons.each do |coupon|
+      coupon.expiration = false
+      coupon.max_count = 50
+      coupon.end_time = Time.now + 6.hours
+      coupon.save
 
-
+    end
+    redirect_to root_path
   end
 
 
@@ -141,8 +150,7 @@ class CouponsController < ApplicationController
     @lat =params[:lat]
     @long =params[:lon]
 
-
-
-
   end
+
+
 end
